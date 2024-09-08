@@ -1,0 +1,85 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+} */
+
+.navbar{
+    width: 100%;
+    height: 12%;
+    padding: 20px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #46543e;
+    color: antiquewhite;
+}
+
+.logo{
+    width: 20%;
+}
+
+.logo h1{
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 50px;
+    font-weight: 850;
+    color: #5a6a50;
+    -webkit-text-stroke: 1px antiquewhite;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s ease-out;
+}
+
+.logo h1:hover{
+    transform: scale(1.09);
+    color: #dae8d5;
+    filter: drop-shadow(5px 0px 30px rgba(249, 219, 181, 0.567) );
+
+}
+
+.links{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navElement{
+    font-size: 28px;
+    display: inline-block;
+    color: antiquewhite;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s ease-in;
+}
+
+.navElement::before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: antiquewhite;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+.navElement:hover::before{
+    transform: scaleX(1);
+    background-color: #c1c8be;
+    transform-origin: bottom left;
+}
+
+.navElement:hover{
+    /* transform: scale(1.2); */
+    color: #c1c8be;
+    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154) );
+}

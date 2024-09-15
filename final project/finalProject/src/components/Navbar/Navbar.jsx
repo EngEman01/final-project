@@ -13,14 +13,14 @@ export default function Navbar() {
                 </div>
 
                 <div className={styleNavbar.links}>
-                    {/* <Link>Home</Link>
-                        <Link>About</Link>
-                        <Link>Trees</Link>
-                        <Link>Contact</Link> */}
-                    <a className={styleNavbar.navElement} href="">Home</a>
+                        <Link to="/" className={styleNavbar.navElement}>Home</Link>
+                        <Link to="/about" className={styleNavbar.navElement}>About</Link>
+                        <Link  to="/trees" className={styleNavbar.navElement}>Trees</Link>
+                        <Link  to="/about" className={styleNavbar.navElement}>Contact</Link>
+                    {/* <a className={styleNavbar.navElement} href="">Home</a>
                     <a className={styleNavbar.navElement} href="">About</a>
                     <a className={styleNavbar.navElement} href="">Trees</a>
-                    <a className={styleNavbar.navElement} href="">Contact</a>
+                    <a className={styleNavbar.navElement} href="">Contact</a> */}
                     <div className={styleNavbar.profile}>
                         
                     </div>

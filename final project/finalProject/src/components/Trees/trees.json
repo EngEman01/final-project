@@ -1,0 +1,160 @@
+{
+    "trees": [
+      {
+        "name": "Oak Tree",
+        "category": "Deciduous",
+        "description": "Oak trees absorb carbon dioxide, improve air quality, and provide habitats for various wildlife.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Deep watering during dry spells, especially in the first few years.",
+          "Mulching: Apply mulch to retain moisture.",
+          "Pruning: Prune in late winter to shape and remove dead branches."
+        ],
+        "image": "URL_to_Oak_Tree_Image"
+      },
+      {
+        "name": "Maple Tree",
+        "category": "Deciduous",
+        "description": "Known for its beautiful fall colors, the maple tree supports wildlife and can be tapped for syrup.",
+        "care": [
+          "Location: Sunny or partial shade.",
+          "Soil: Moist, well-drained soil.",
+          "Watering: Regularly during dry conditions.",
+          "Fertilizing: Fertilize in early spring.",
+          "Pruning: Prune during dormancy."
+        ],
+        "image": "URL_to_Maple_Tree_Image"
+      },
+      {
+        "name": "Pine Tree",
+        "category": "Evergreen",
+        "description": "Pine trees provide year-round greenery, support wildlife, and stabilize soil.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained; tolerates poor soil.",
+          "Watering: Regularly water young trees.",
+          "Mulching: Use mulch to retain moisture.",
+          "Pruning: Prune to maintain shape."
+        ],
+        "image": "URL_to_Pine_Tree_Image"
+      },
+      {
+        "name": "Cedar Tree",
+        "category": "Evergreen",
+        "description": "Cedar trees are resistant to decay, providing habitats for wildlife and improving air quality.",
+        "care": [
+          "Location: Full sun to partial shade.",
+          "Soil: Prefers well-drained soil.",
+          "Watering: Water young trees regularly.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Minimal pruning needed; shape as necessary."
+        ],
+        "image": "URL_to_Cedar_Tree_Image"
+      },
+      {
+        "name": "Apple Tree",
+        "category": "Fruit",
+        "description": "Apple trees produce delicious fruit, support biodiversity, and can be part of sustainable gardening.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained, nutrient-rich soil.",
+          "Watering: Regular watering, especially when young.",
+          "Fertilizing: Fertilize in early spring.",
+          "Pruning: Prune annually to promote healthy growth."
+        ],
+        "image": "URL_to_Apple_Tree_Image"
+      },
+      {
+        "name": "Cherry Tree",
+        "category": "Fruit",
+        "description": "Cherry trees yield sweet or tart fruit, attract pollinators, and enhance landscape beauty.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Water during dry spells.",
+          "Fertilizing: Fertilize in early spring.",
+          "Pruning: Prune after flowering."
+        ],
+        "image": "URL_to_Cherry_Tree_Image"
+      },
+      {
+        "name": "Sycamore Tree",
+        "category": "Shade",
+        "description": "Provides large shade areas, improving urban environments and supporting wildlife.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Prefers moist, well-drained soil.",
+          "Watering: Regular watering, especially in dry periods.",
+          "Mulching: Mulch to conserve moisture.",
+          "Pruning: Prune in late winter."
+        ],
+        "image": "URL_to_Sycamore_Tree_Image"
+      },
+      {
+        "name": "Linden Tree",
+        "category": "Shade",
+        "description": "Offers dense foliage for shade and fragrant flowers that attract bees.",
+        "care": [
+          "Location: Full sun to partial shade.",
+          "Soil: Well-drained soil.",
+          "Watering: Water during dry spells.",
+          "Fertilizing: Fertilize in early spring.",
+          "Pruning: Prune to maintain shape and health."
+        ],
+        "image": "URL_to_Linden_Tree_Image"
+      },
+      {
+        "name": "Willow Tree",
+        "category": "Wetland",
+        "description": "Willows help manage water runoff, improve water quality, and provide habitats.",
+        "care": [
+          "Location: Prefers wet or damp areas.",
+          "Soil: Requires moist, well-drained soil.",
+          "Watering: Ensure consistent moisture.",
+          "Mulching: Mulch to retain moisture.",
+          "Pruning: Prune in late winter to control growth."
+        ],
+        "image": "URL_to_Willow_Tree_Image"
+      },
+      {
+        "name": "Alder Tree",
+        "category": "Wetland",
+        "description": "Alders improve soil quality and provide habitats; they can fix nitrogen.",
+        "care": [
+          "Location: Full sun to partial shade.",
+          "Soil: Prefers wet, well-drained soil.",
+          "Watering: Keep soil consistently moist.",
+          "Mulching: Use mulch to retain moisture.",
+          "Pruning: Prune to shape and remove dead branches."
+        ],
+        "image": "URL_to_Alder_Tree_Image"
+      },
+      {
+        "name": "Red Maple",
+        "category": "Native",
+        "description": "Adapted to local conditions, red maples provide habitats and improve air quality.",
+        "care": [
+          "Location: Full sun to partial shade.",
+          "Soil: Moist, well-drained soil.",
+          "Watering: Regularly water young trees.",
+          "Mulching: Use mulch to retain moisture.",
+          "Pruning: Prune in late winter."
+        ],
+        "image": "URL_to_Red_Maple_Image"
+      },
+      {
+        "name": "Black Cherry",
+        "category": "Native",
+        "description": "Provides fruit for wildlife and is valuable for timber; supports local ecosystems.",
+        "care": [
+          "Location: Prefers full sun.",
+          "Soil: Well-drained, slightly acidic soil.",
+          "Watering: Water young trees regularly.",
+          "Mulching: Apply mulch to retain moisture.",
+          "Pruning: Prune to remove dead or crossing branches."
+        ],
+        "image": "URL_to_Black_Cherry_Image"
+      }
+    ]
+  }

@@ -12,11 +12,12 @@
     width: 100%;
     height: 12%;
     padding: 20px;
+    z-index: 1000;
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #46543e;
+    background:linear-gradient(#46543e , #46543e95 ) ;
     color: antiquewhite;
 }
 

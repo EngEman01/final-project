@@ -1,0 +1,7 @@
+.tree{
+    width: 100svw;
+    height: 300vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

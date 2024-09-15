@@ -4,6 +4,8 @@ import Home from "./components/Home/Home"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Trees from "./components/Trees/Trees";
+import ContactUs from "./components/Contact/Contact";
+import TreePage from "./components/Trees/TreePage";
 
 const routes = createBrowserRouter([
   {
@@ -22,11 +24,15 @@ const routes = createBrowserRouter([
       {
         path: "/trees",
         element: <Trees/>,
+      },
+      {
+        path: "/trees/:id",
+        element: <TreePage/>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />
       }
-      // {
-      //   path: "/contact",
-      //   element: <Contact />
-      // }
     ],
   },
 ]);

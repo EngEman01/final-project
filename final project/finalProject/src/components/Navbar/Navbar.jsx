@@ -16,7 +16,7 @@ export default function Navbar() {
                         <Link to="/" className={styleNavbar.navElement}>Home</Link>
                         <Link to="/about" className={styleNavbar.navElement}>About</Link>
                         <Link  to="/trees" className={styleNavbar.navElement}>Trees</Link>
-                        <Link  to="/about" className={styleNavbar.navElement}>Contact</Link>
+                        <Link  to="/contact" className={styleNavbar.navElement}>Contact</Link>
                     {/* <a className={styleNavbar.navElement} href="">Home</a>
                     <a className={styleNavbar.navElement} href="">About</a>
                     <a className={styleNavbar.navElement} href="">Trees</a>

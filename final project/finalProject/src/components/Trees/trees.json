@@ -1,160 +1,285 @@
 {
     "trees": [
       {
-        "name": "Oak Tree",
-        "category": "Deciduous",
-        "description": "Oak trees absorb carbon dioxide, improve air quality, and provide habitats for various wildlife.",
+        "id": "1",
+        "name": "Moringa",
+        "category": "Drought-tolerant",
+        "price": 200,
+        "description": "Known as the 'Miracle Tree,' moringa is fast-growing, drought-resistant, and requires minimal water. It helps capture carbon dioxide and improves soil quality.",
         "care": [
           "Location: Full sun.",
           "Soil: Well-drained soil.",
-          "Watering: Deep watering during dry spells, especially in the first few years.",
-          "Mulching: Apply mulch to retain moisture.",
-          "Pruning: Prune in late winter to shape and remove dead branches."
+          "Watering: Water regularly, but it's drought-tolerant.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Prune to maintain shape and remove dead branches."
         ],
-        "image": "URL_to_Oak_Tree_Image"
+        "image":[
+         "/tree-images/MoringaLeave1.jpg",
+         "/tree-images/MoringaLeave2.jpg",
+         "/tree-images/MoringaLeave3.jpeg"
+        ] 
       },
       {
-        "name": "Maple Tree",
-        "category": "Deciduous",
-        "description": "Known for its beautiful fall colors, the maple tree supports wildlife and can be tapped for syrup.",
-        "care": [
-          "Location: Sunny or partial shade.",
-          "Soil: Moist, well-drained soil.",
-          "Watering: Regularly during dry conditions.",
-          "Fertilizing: Fertilize in early spring.",
-          "Pruning: Prune during dormancy."
-        ],
-        "image": "URL_to_Maple_Tree_Image"
-      },
-      {
-        "name": "Pine Tree",
-        "category": "Evergreen",
-        "description": "Pine trees provide year-round greenery, support wildlife, and stabilize soil.",
+        "id": "2",
+        "name": "Egyptian Acacia",
+        "category": "Native",
+        "price": 100,
+        "description": "Acacia trees are native to Egypt and excel in arid regions. They prevent desertification, stabilize soil, and absorb CO2.",
         "care": [
           "Location: Full sun.",
-          "Soil: Well-drained; tolerates poor soil.",
-          "Watering: Regularly water young trees.",
-          "Mulching: Use mulch to retain moisture.",
-          "Pruning: Prune to maintain shape."
+          "Soil: Well-drained, sandy soil.",
+          "Watering: Low water needs once established.",
+          "Mulching: Use mulch to retain soil moisture.",
+          "Pruning: Prune to remove dead branches and shape the tree."
         ],
-        "image": "URL_to_Pine_Tree_Image"
+        "image":[
+            "/tree-images/Egyptian Acacia1.jpeg",
+            "/tree-images/Egyptian Acacia2.jpeg",
+            "/tree-images/Egyptian Acacia3.jpeg"
+           ] 
       },
       {
-        "name": "Cedar Tree",
-        "category": "Evergreen",
-        "description": "Cedar trees are resistant to decay, providing habitats for wildlife and improving air quality.",
+        "id": "3",
+        "name": "Tamarisk",
+        "category": "Drought-tolerant",
+        "price": 300,
+        "description": "Tamarisk is highly drought-resistant, thrives in saline soils, and helps combat desertification and CO2 reduction.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Tolerates saline and poor soil.",
+          "Watering: Minimal once established.",
+          "Mulching: Mulch to conserve soil moisture.",
+          "Pruning: Prune to manage size and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/Tamarisk.jpeg",
+            "/tree-images/Tamarisk1.jpeg",
+            "/tree-images/Tamarisk2.jpeg"
+           ] 
+      },
+      {
+        "id": "4",
+        "name": "Date Palm",
+        "category": "Fruit",
+        "price": 250,
+        "description": "Date palms thrive in arid climates and help reduce greenhouse gases. They provide shade and produce dates.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed during dry spells.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Remove dead fronds and trim to maintain shape."
+        ],
+        "image":[
+            "/tree-images/Date Palm.jpeg",
+            "/tree-images/Date Palm1.jpeg",
+            "/tree-images/Date Palm2.jpeg"
+           ] 
+      },
+      {
+        "id": "5",
+        "name": "Jojoba",
+        "category": "Drought-tolerant",
+        "price": 150,
+        "description": "Jojoba is a drought-resistant tree with deep roots that help conserve water. It also reduces CO2 and prevents desertification.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained, sandy soil.",
+          "Watering: Low water needs once established.",
+          "Mulching: Use mulch to retain soil moisture.",
+          "Pruning: Prune to manage size and shape."
+        ],
+        "image":[
+            "/tree-images/Jojoba.jpeg",
+            "/tree-images/Jojoba1.jpeg",
+            "/tree-images/Jojoba2.jpeg"
+           ] 
+      },
+      {
+        "id": "6",
+        "name": "Sycamore Fig",
+        "category": "Native",
+        "price": 350,
+        "description": "Native to Egypt, the Sycamore Fig is resilient to dry conditions and helps provide shade, improve air quality, and support wildlife.",
         "care": [
           "Location: Full sun to partial shade.",
-          "Soil: Prefers well-drained soil.",
-          "Watering: Water young trees regularly.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering, especially during dry periods.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Prune to shape and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/sycamore fig1.jpeg",
+            "/tree-images/sycamore fig2.jpeg"
+           ] 
+      },
+      {
+        "id": "7",
+        "name": "Olive Tree",
+        "category": "Drought-tolerant",
+        "price": 170,
+        "description": "Olive trees are highly drought-tolerant, excellent for carbon sequestration, and can thrive in Egypt’s Mediterranean climate.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed, especially in dry spells.",
+          "Mulching: Mulch to conserve moisture.",
+          "Pruning: Prune to maintain shape and improve fruit production."
+        ],
+        "image":[
+            "/tree-images/olive tree 1.jpeg",
+            "/tree-images/olive tree 2.jpeg"
+           ] 
+      },
+      {
+        "id": "8",
+        "name": "Lebanese Cedar",
+        "category": "Evergreen",
+        "price": 240,
+        "description": "Lebanese Cedar trees are effective in carbon sequestration and reforestation efforts, and they are resilient in cooler areas of Egypt.",
+        "care": [
+          "Location: Full sun to partial shade.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed, especially in dry periods.",
           "Mulching: Mulch to retain soil moisture.",
           "Pruning: Minimal pruning needed; shape as necessary."
         ],
-        "image": "URL_to_Cedar_Tree_Image"
+        "image":[
+            "/tree-images/lebanese cedar 1.jpeg",
+            "/tree-images/lebanese cedar 2.jpeg",
+            "/tree-images/lebanese cedar 3.jpeg"
+           ] 
       },
       {
-        "name": "Apple Tree",
+        "id": "9",
+        "name": "Carob Tree",
+        "category": "Drought-tolerant",
+        "price": 230,
+        "description": "Carob trees are ideal for arid regions, helping with carbon sequestration and soil restoration. Their pods are used for food.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained, sandy soil.",
+          "Watering: Low water needs once established.",
+          "Mulching: Use mulch to retain soil moisture.",
+          "Pruning: Prune to manage size and shape."
+        ],
+        "image":[
+            "/tree-images/carob tree 1.jpeg",
+            "/tree-images/carob tree 2.jpeg"
+           ] 
+      },
+      {
+        "id": "10",
+        "name": "Eucalyptus",
+        "category": "Evergreen",
+        "price": 320,
+        "description": "Eucalyptus trees are fast-growing, drought-resistant, and absorb large amounts of CO2. They also help prevent soil erosion.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed during dry periods.",
+          "Mulching: Mulch to conserve soil moisture.",
+          "Pruning: Prune to maintain shape and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/eucalyptus 1.jpeg",
+            "/tree-images/eucalyptus 2.jpeg"
+           ] 
+      },
+      {
+        "id": "11",
+        "name": "Baobab",
+        "category": "Drought-tolerant",
+        "price": 120,
+        "description": "Baobab trees store water in their trunks and are highly adapted to dry climates. They capture CO2 and play a role in the water cycle.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Minimal once established.",
+          "Mulching: Use mulch to retain soil moisture.",
+          "Pruning: Prune to maintain shape and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/MoringaLeave1.jpg",
+            "/tree-images/MoringaLeave2.jpg",
+            "/tree-images/MoringaLeave3.jpeg"
+           ] 
+      },
+      {
+        "id": "12",
+        "name": "Neem Tree",
+        "category": "Drought-tolerant",
+        "price": 370,
+        "description": "Neem trees are resilient in poor soil conditions and sequester carbon effectively. They also have medicinal properties and can be used as a natural pesticide.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Low water needs once established.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Prune to maintain size and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/MoringaLeave1.jpg",
+            "/tree-images/MoringaLeave2.jpg",
+            "/tree-images/MoringaLeave3.jpeg"
+           ] 
+      },
+      {
+        "id": "13",
+        "name": "African Mahogany",
+        "category": "Evergreen",
+        "price": 210,
+        "description": "African Mahogany thrives in hot, dry climates, absorbs significant CO2, and is used in reforestation projects. Its wood is highly valuable.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed during dry spells.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Prune to maintain shape and remove dead branches."
+        ],
+        "image":[
+            "/tree-images/MoringaLeave1.jpg",
+            "/tree-images/MoringaLeave2.jpg",
+            "/tree-images/MoringaLeave3.jpeg"
+           ] 
+      },
+      {
+        "id": "14",
+        "name": "Casuarina",
+        "category": "Drought-tolerant",
+        "price": 182,
+        "description": "Casuarina trees grow quickly and help control soil erosion. They are effective in carbon sequestration and improve soil fertility by fixing nitrogen.",
+        "care": [
+          "Location: Full sun.",
+          "Soil: Well-drained soil.",
+          "Watering: Regular watering needed during dry spells.",
+          "Mulching: Mulch to retain soil moisture.",
+          "Pruning: Prune to maintain shape and remove dead branches."
+        ],
+        "image":[
+            "tree-images/MoringaLeave1.jpg",
+            "tree-images/MoringaLeave2.jpg",
+            "tree-images/MoringaLeave3.jpeg"
+           ] 
+      },
+      {
+        "id": "15",
+        "name": "Pomegranate",
         "category": "Fruit",
-        "description": "Apple trees produce delicious fruit, support biodiversity, and can be part of sustainable gardening.",
+        "price": 130,
+        "description": "Pomegranate trees are drought-tolerant and thrive in Egypt’s climate. They help absorb CO2 and are valuable in agroforestry systems.",
         "care": [
           "Location: Full sun.",
           "Soil: Well-drained, nutrient-rich soil.",
-          "Watering: Regular watering, especially when young.",
-          "Fertilizing: Fertilize in early spring.",
-          "Pruning: Prune annually to promote healthy growth."
+          "Watering: Regular watering needed, especially during dry periods.",
+          "Mulching: Use mulch to retain soil moisture.",
+          "Pruning: Prune to enhance fruit production and remove dead branches."
         ],
-        "image": "URL_to_Apple_Tree_Image"
-      },
-      {
-        "name": "Cherry Tree",
-        "category": "Fruit",
-        "description": "Cherry trees yield sweet or tart fruit, attract pollinators, and enhance landscape beauty.",
-        "care": [
-          "Location: Full sun.",
-          "Soil: Well-drained soil.",
-          "Watering: Water during dry spells.",
-          "Fertilizing: Fertilize in early spring.",
-          "Pruning: Prune after flowering."
-        ],
-        "image": "URL_to_Cherry_Tree_Image"
-      },
-      {
-        "name": "Sycamore Tree",
-        "category": "Shade",
-        "description": "Provides large shade areas, improving urban environments and supporting wildlife.",
-        "care": [
-          "Location: Full sun.",
-          "Soil: Prefers moist, well-drained soil.",
-          "Watering: Regular watering, especially in dry periods.",
-          "Mulching: Mulch to conserve moisture.",
-          "Pruning: Prune in late winter."
-        ],
-        "image": "URL_to_Sycamore_Tree_Image"
-      },
-      {
-        "name": "Linden Tree",
-        "category": "Shade",
-        "description": "Offers dense foliage for shade and fragrant flowers that attract bees.",
-        "care": [
-          "Location: Full sun to partial shade.",
-          "Soil: Well-drained soil.",
-          "Watering: Water during dry spells.",
-          "Fertilizing: Fertilize in early spring.",
-          "Pruning: Prune to maintain shape and health."
-        ],
-        "image": "URL_to_Linden_Tree_Image"
-      },
-      {
-        "name": "Willow Tree",
-        "category": "Wetland",
-        "description": "Willows help manage water runoff, improve water quality, and provide habitats.",
-        "care": [
-          "Location: Prefers wet or damp areas.",
-          "Soil: Requires moist, well-drained soil.",
-          "Watering: Ensure consistent moisture.",
-          "Mulching: Mulch to retain moisture.",
-          "Pruning: Prune in late winter to control growth."
-        ],
-        "image": "URL_to_Willow_Tree_Image"
-      },
-      {
-        "name": "Alder Tree",
-        "category": "Wetland",
-        "description": "Alders improve soil quality and provide habitats; they can fix nitrogen.",
-        "care": [
-          "Location: Full sun to partial shade.",
-          "Soil: Prefers wet, well-drained soil.",
-          "Watering: Keep soil consistently moist.",
-          "Mulching: Use mulch to retain moisture.",
-          "Pruning: Prune to shape and remove dead branches."
-        ],
-        "image": "URL_to_Alder_Tree_Image"
-      },
-      {
-        "name": "Red Maple",
-        "category": "Native",
-        "description": "Adapted to local conditions, red maples provide habitats and improve air quality.",
-        "care": [
-          "Location: Full sun to partial shade.",
-          "Soil: Moist, well-drained soil.",
-          "Watering: Regularly water young trees.",
-          "Mulching: Use mulch to retain moisture.",
-          "Pruning: Prune in late winter."
-        ],
-        "image": "URL_to_Red_Maple_Image"
-      },
-      {
-        "name": "Black Cherry",
-        "category": "Native",
-        "description": "Provides fruit for wildlife and is valuable for timber; supports local ecosystems.",
-        "care": [
-          "Location: Prefers full sun.",
-          "Soil: Well-drained, slightly acidic soil.",
-          "Watering: Water young trees regularly.",
-          "Mulching: Apply mulch to retain moisture.",
-          "Pruning: Prune to remove dead or crossing branches."
-        ],
-        "image": "URL_to_Black_Cherry_Image"
+        "image":[
+            "tree-images/MoringaLeave1.jpg",
+            "tree-images/MoringaLeave2.jpg",
+            "tree-images/MoringaLeave3.jpeg"
+           ] 
       }
     ]
   }

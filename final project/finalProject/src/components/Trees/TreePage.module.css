@@ -1,0 +1,11 @@
+.trees{
+    width: 100svw;
+    height: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treeImage{
+    width: 500px;
+}

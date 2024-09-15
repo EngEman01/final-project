@@ -23,7 +23,7 @@ export default function Home() {
                     <h1>Plant Trees, Earn Rewards</h1>
                     <h2>At Shagara, we believe in the power of planting trees to restore nature, combat climate change, and foster sustainable communities. By joining us, you can make a tangible impact on the environment, one tree at a time. Earn rewards for every tree you plant, and be a part of Egypt's movement towards a greener, healthier future. Together, we can build a better planet for generations to come.</h2>
                     <button className={styleHome.know}>
-                        <Link to="/about" className={styleHome.planting}>plant trees</Link>
+                        <Link to="/trees" className={styleHome.planting}>plant trees</Link>
                     </button>
                 </div>
 
@@ -74,7 +74,9 @@ export default function Home() {
                 <div className={styleHome.join}>
                     <h1>Join the Green Revolution</h1>
                     <p>At Shagara, we believe in the power of planting trees to restore nature, combat climate change, and foster sustainable communities. By joining us, you can make a tangible impact on the environment, one tree at a time. Earn rewards for every tree you plant, and be a part of Egypt's movement towards a greener, healthier future. Together, we can build a better planet for generations to come.</p>
-                    <button className={styleHome.know}>join us</button>
+                    <button className={styleHome.know}>
+                    <Link to="/contact" className={styleHome.planting}>join us</Link>
+                    </button>
                 </div>
 
             </div>

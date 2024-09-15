@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const usefatch = () => {
+const Usefatch = () => {
     let [trees, setTrees] = useState([]);
 
     let getData = async () => {
-        fetch("https://fakestoreapi.com/products")
+        fetch("http://localhost:7000/trees")
             .then((res) => res.json())
             .then((data) => { 
                 setTrees(data);
@@ -16,4 +16,4 @@ const usefatch = () => {
 }
 
 
-export default usefatch;
+export default Usefatch;

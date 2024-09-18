@@ -1,12 +1,19 @@
 import React from 'react'
 import styleHome from './Home.module.css'
 import { Link } from 'react-router-dom'
+import ImageSlider from "./ImageSlider"; 
+import styleImage from "./imageGallery.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Home() {
     return (
         <>
+            <div className={styleImage.slides}>
+                <ImageSlider />
+            </div>
+
+
             <div className={styleHome.home}>
                 <h1 className={styleHome.textHome}>Home</h1>
                 <h3>One tree can absorb 48 pounds of carbon dioxide each year.<br></br> Imagine the impact we can make together</h3>
@@ -75,7 +82,7 @@ export default function Home() {
                     <h1>Join the Green Revolution</h1>
                     <p>At Shagara, we believe in the power of planting trees to restore nature, combat climate change, and foster sustainable communities. By joining us, you can make a tangible impact on the environment, one tree at a time. Earn rewards for every tree you plant, and be a part of Egypt's movement towards a greener, healthier future. Together, we can build a better planet for generations to come.</p>
                     <button className={styleHome.know}>
-                    <Link to="/contact" className={styleHome.planting}>join us</Link>
+                        <Link to="/contact" className={styleHome.planting}>join us</Link>
                     </button>
                 </div>
 
@@ -83,3 +90,4 @@ export default function Home() {
         </>
     )
 }
+  

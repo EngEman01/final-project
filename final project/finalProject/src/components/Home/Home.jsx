@@ -1,17 +1,17 @@
 import React from 'react'
 import styleHome from './Home.module.css'
 import { Link } from 'react-router-dom'
-import ImageSlider from "./ImageSlider"; 
-import styleImage from "./imageGallery.module.css"
+import ImageSlider from "./ImageSlider";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Home() {
     return (
         <>
-            <div className={styleImage.slides}>
+            {/* <div  >
                 <ImageSlider />
-            </div>
+            </div> */}
 
 
             <div className={styleHome.home}>
@@ -90,4 +90,3 @@ export default function Home() {
         </>
     )
 }
-  

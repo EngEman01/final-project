@@ -27,8 +27,9 @@ export default function Footer() {
             </div>
             <div className={styleFooter.rightFooter}>
                 <div className={styleFooter.boxContact}>
-                    <FontAwesomeIcon icon={faEnvelope} className={styleFooter.icon2} />
-                    <h4>info@gmail.com</h4>
+               
+                <a href="mailto:someone@example.com" className={styleFooter.email}> <FontAwesomeIcon icon={faEnvelope} className={styleFooter.icon2} /></a>
+                    <a href="mailto:someone@example.com" className={styleFooter.email}><h4>info@gmail.com</h4></a> 
 
                 </div>
                 <div className={styleFooter.boxContact}>

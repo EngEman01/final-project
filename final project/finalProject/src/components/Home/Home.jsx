@@ -1,25 +1,16 @@
 import React from 'react'
 import styleHome from './Home.module.css'
 import { Link } from 'react-router-dom'
-import ImageSlider from "./ImageSlider"; 
-import styleImage from "./imageGallery.module.css"
+import ImageSlider from "./ImageSlider";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Home() {
     return (
         <>
-            {/* <div className={styleImage.slides}>
+            <div >
                 <ImageSlider />
-            </div> */}
-
-
-            <div className={styleHome.home}>
-                <h1 className={styleHome.textHome}>Home</h1>
-                <h3>One tree can absorb 48 pounds of carbon dioxide each year.<br></br> Imagine the impact we can make together</h3>
-                <button className={styleHome.know1}>
-                    <Link to="/about" className={styleHome.planting}>Learn more</Link>
-                </button>
             </div>
 
             <div className={styleHome.plantes}>
@@ -61,7 +52,7 @@ export default function Home() {
                             Purchase a tree and be part of our mission to create a greener Egypt. Each tree you buy helps combat climate change and supports a healthier planet!
                         </p>
                         <button className={styleHome.know}>
-                            <Link to="/about" className={styleHome.planting}>Donate</Link>
+                            <Link to="/trees" className={styleHome.planting}>Buy</Link>
                         </button>
                     </div>
 
@@ -72,9 +63,9 @@ export default function Home() {
                         <p>
                             Learn how to plant and care for your tree with our easy, step-by-step guide. Whether you're a beginner or an expert. Let’s plant together and make the earth a little greener!
                         </p>
-                        <button className={styleHome.know}>
+                        {/* <button className={styleHome.know}>
                             <Link to="/about" className={styleHome.planting}>Donate</Link>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 
@@ -90,4 +81,3 @@ export default function Home() {
         </>
     )
 }
-  

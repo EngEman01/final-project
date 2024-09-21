@@ -103,3 +103,8 @@ html, body {
     transform: scale(1.2);
     filter: drop-shadow(10px 7px 20px antiquewhite );
 }
+
+.email{
+    color: antiquewhite;
+    text-decoration: none;
+}

@@ -106,19 +106,17 @@ h2{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     border: 1px solid #46543e;
     color: #46543e;
     border-radius: 20px;
     box-shadow: 10px 10px 15px #606f5898;
-    opacity: 0.4;
-    /* transform: rotate(45deg); */
     transition: 0.5s all;
 
 }
 
 .treeCard:hover{
     transform: scale(1.05);
-    opacity: 1;
 }
 
 .imageCard{

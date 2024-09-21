@@ -1,6 +1,6 @@
 .allPage {
     width: 100svw;
-    height: 480vh;
+    height: 500vh;
     margin-top: 100px;
     color: #46543e;
     display: flex;
@@ -28,8 +28,10 @@
 }
 
 .trees {
+    height: 620px;
     border: 2px solid #46543e;
     border-radius: 15px;
+    position: relative;
     cursor: pointer;
     overflow: hidden;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
@@ -69,12 +71,14 @@
 
 
 .details {
-    width: 100%;
+    width: 90%;
     padding: 15px;
     font-size: 20px;
     border: 1px solid #46543e;
     border-radius: 10px;
     background: linear-gradient(to right, #3d4e34, #72a551);
+    position: absolute;
+    bottom: 10px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     margin-top: auto; /* Ensures the button is always at the bottom */

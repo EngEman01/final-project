@@ -65,8 +65,9 @@ export default function ContactUs() {
                         <span>+201245874521</span>
                     </div>
                     <div className={styleContact.method}>
-                        <FontAwesomeIcon icon={faEnvelope} className={styleContact.icon} />
-                        <span>info@gmail.com</span>
+                    <a href="mailto:someone@example.com"><FontAwesomeIcon icon={faEnvelope} className={styleContact.icon} /></a>
+                        
+                    <a href="mailto:someone@example.com" className={styleContact.goMail}> <span>info@gmail.com</span></a>
                     </div>
                     <div className={styleContact.method}>
                         <FontAwesomeIcon icon={faMapMarkerAlt} className={styleContact.icon} />

@@ -22,7 +22,8 @@ export default function Navbar() {
                     <a className={styleNavbar.navElement} href="">Trees</a>
                     <a className={styleNavbar.navElement} href="">Contact</a> */}
                     <div className={styleNavbar.profile}>
-                        
+                    <Link to="/" className={styleNavbar.navElement}>login/</Link>
+                    <Link to="/about" className={styleNavbar.navElement}>register</Link>
                     </div>
                 </div>
 

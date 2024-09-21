@@ -104,3 +104,8 @@
     color: #5a6a50;
     filter: drop-shadow(5px 5px 10px antiquewhite);
 } 
+
+.goMail{
+    color: #5a6a50;
+    text-decoration: none;
+}

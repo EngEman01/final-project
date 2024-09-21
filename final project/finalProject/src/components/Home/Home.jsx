@@ -9,9 +9,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 export default function Home() {
     return (
         <>
-            <div className={styleImage.slides}>
+            {/* <div className={styleImage.slides}>
                 <ImageSlider />
-            </div>
+            </div> */}
 
 
             <div className={styleHome.home}>

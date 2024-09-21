@@ -2,6 +2,8 @@ import React from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from "./ImageGallery.module.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const dataSource = [
   {
@@ -59,6 +61,7 @@ const ImageSlider = () => {
         renderItem={renderItem} // Use custom renderItem to display the description
       />
     </div>
+
   );
 };
 

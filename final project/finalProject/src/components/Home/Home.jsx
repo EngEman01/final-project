@@ -9,18 +9,18 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 export default function Home() {
     return (
         <>
-            {/* <div  >
+            <div  >
                 <ImageSlider />
-            </div> */}
+            </div>
 
 
-            <div className={styleHome.home}>
+            {/* <div className={styleHome.home}>
                 <h1 className={styleHome.textHome}>Home</h1>
                 <h3>One tree can absorb 48 pounds of carbon dioxide each year.<br></br> Imagine the impact we can make together</h3>
                 <button className={styleHome.know1}>
                     <Link to="/about" className={styleHome.planting}>Learn more</Link>
                 </button>
-            </div>
+            </div> */}
 
             <div className={styleHome.plantes}>
 

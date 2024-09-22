@@ -1,16 +1,17 @@
-import About from "./components/About/About"
-import './App.css'
-import Home from "./components/Home/Home"
+import About from "./components/About/About";
+import "./App.css";
+import Home from "./components/Home/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Trees from "./components/Trees/Trees";
 import ContactUs from "./components/Contact/Contact";
+import Donate from "./components/Donate/Donate";
 import TreePage from "./components/Trees/TreePage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
     errorElement: <h1>ERROR!!!!</h1>,
     children: [
       {
@@ -23,31 +24,34 @@ const routes = createBrowserRouter([
       },
       {
         path: "/trees",
-        element: <Trees/>,
+        element: <Trees />,
       },
       {
         path: "/trees/:id",
-        element: <TreePage/>,
+        element: <TreePage />,
       },
       {
         path: "/contact",
-        element: <ContactUs />
-      }
+        element: <ContactUs />,
+      },
+      {
+        path: "/donate",
+        element: <Donate />,
+      },
     ],
   },
 ]);
 
 function App() {
-
   return (
     <>
-    {/* <Navbar/>
+      {/* <Navbar/>
     <About/>
     <Home/>
     <Footer/> */}
-    <RouterProvider router={routes}></RouterProvider>
+      <RouterProvider router={routes}></RouterProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 .allPage {
     width: 100svw;
-    height: 550vh;
+    height: 500vh;
     margin-top: 100px;
     color: #46543e;
     display: flex;
@@ -47,13 +47,13 @@
     transform: scale(1.07);
 }
 
-.name{
+.name {
 
     font-size: 30px;
     text-shadow: 10px 6px 10px #46543e;
 }
 
-.des{
+.des {
     color: #577d3e;
 }
 
@@ -81,7 +81,8 @@
     bottom: 10px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-    margin-top: auto; /* Ensures the button is always at the bottom */
+    margin-top: auto;
+    /* Ensures the button is always at the bottom */
 }
 
 .details:hover {
@@ -94,4 +95,114 @@
     font-weight: bold;
     display: block;
     text-align: center;
+}
+
+.searchbox {
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: rgb(249, 243, 234);
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #46543e;
+}
+
+.searchbox:hover input {
+    width: 400px;
+}
+
+.searchbox input {
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+    color: #46543e;
+    width: 400px;
+    /*remove it to make it toggle*/
+}
+
+.searchButton {
+    background: none;
+    border: none;
+    color: #46543e;
+    font-size: 18px;
+
+}
+
+.fab {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    background-color: rgb(249, 243, 234);
+    color: #46543e;
+    border: 2px solid #46543e;
+    border-radius: 10%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    z-index: 999;
+
+
+}
+
+
+
+.closeButton {
+    margin-top: 20px;
+    background-color: #46543e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formContainer {
+    background: rgb(249, 243, 234);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding-top: 100px;
+
+}
+
+.formContainer div {
+    margin-bottom: 15px;
+}
+
+.formContainer label {
+    display: block;
+    margin-bottom: 5px;
+    color: #46543e;
+}
+
+.formContainer input,
+.formContainer select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #46543e;
 }

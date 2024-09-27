@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    /* text-transform: capitalize; */
     box-sizing: border-box;
     font-family: "Nerko One", cursive;
     font-weight: 400;
@@ -16,8 +15,6 @@
 
  #root {
   width: 100svw;
-  
-  /* height: 100svh; */
   background-color: antiquewhite;
   overflow-x: hidden;
   position: relative;

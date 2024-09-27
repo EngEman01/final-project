@@ -13,16 +13,12 @@ const dataSource = [
   {
     original: "/images/homeBackground.JPG",
     description:
-      "Breathe Easy! Let's plant trees for cleaner air!"
+      "Climate change is real, but so is our power to combat it. Join us in planting trees that will protect our future"
   },
   {
     original: "/tree-images/african mahogany  side tree.jpeg",
-    description: "100% Original Beef"
+    description: "Let's grow a sustainable future, one tree at a time. Your small action today can create a big change tomorrow."
   }
-  // {
-  //   original: "/tree-images/neam leaves.jpg",
-  //   description: "Mouthfull Of Happiness"
-  // }
 ];
 
 const ImageSlider = () => {

@@ -45,10 +45,6 @@ const routes = createBrowserRouter([
 function App() {
   return (
     <>
-      {/* <Navbar/>
-    <About/>
-    <Home/>
-    <Footer/> */}
       <RouterProvider router={routes}></RouterProvider>
     </>
   );

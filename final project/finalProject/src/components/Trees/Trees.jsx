@@ -96,13 +96,13 @@ export default function Trees() {
 
                 <div className={styleTrees.treeContainer}>
                     {Trees.map((Tree) => (
-                        <div className={styleTrees.trees} key={Tree.id}>
+                        <div className={styleTrees.trees} key={Tree._id}>
                             <img className={styleTrees.productImage} src={Tree.image[0]} alt="" />
                             <h4 className={styleTrees.name}>{Tree.name}</h4>
                             <h4 className={styleTrees.des}>{Tree.description}</h4>
                             <h5>Pricing: <span style={{ color: 'green' }}>{Tree.price}</span></h5>
                             <button className={styleTrees.details}>
-                                <Link to={`/trees/${Tree.id}`} className={styleTrees.link}>Details</Link>
+                                <Link to={`/trees/${Tree._id}`} className={styleTrees.link}>Details</Link>
                             </button>
                         </div>
                     ))}

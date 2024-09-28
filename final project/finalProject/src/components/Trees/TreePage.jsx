@@ -9,7 +9,7 @@ export default function TreePage() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:7000/trees/${id}`)
+        fetch(`http://localhost:4000/tree/getTrees/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setTree(data);
@@ -20,7 +20,7 @@ export default function TreePage() {
         return (
             <>
                 <div className={styleTreePage.trees}>
-                    <div className={styleTreePage.side} key={tree.id}>
+                    <div className={styleTreePage.side} key={tree._id}>
                         <div className={styleTreePage.imagesDes}>
                             <img className={styleTreePage.treeImage1} src={tree.image[0]} alt="" />
                             <img className={styleTreePage.treeImage2} src={tree.image[2]} alt="" />

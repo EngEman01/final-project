@@ -4,14 +4,14 @@ const Usefatch = () => {
     let [trees, setTrees] = useState([]);
 
     let getData = async () => {
-        fetch("http://localhost:7000/trees")
+        fetch("http://localhost:4000/tree/getTrees")
             .then((res) => res.json())
-            .then((data) => { 
+            .then((data) => {
                 setTrees(data);
-             })
+            })
     }
 
-    getData(); 
+    getData();
     return trees;
 }
 

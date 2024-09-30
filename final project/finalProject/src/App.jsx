@@ -7,6 +7,14 @@ import Trees from "./components/Trees/Trees";
 import ContactUs from "./components/Contact/Contact";
 import Donate from "./components/Donate/Donate";
 import TreePage from "./components/Trees/TreePage";
+import UserProfile from "./components/Profiles/UsersProfiles/UserProfile";
+import UserCart from "./components/Profiles/UsersProfiles/UserCart";
+import UserInfo from "./components/Profiles/UsersProfiles/UserInfo";
+import AdminProfile from "./components/Profiles/AdminProfile/AdminProfile"
+import AdminDashboard from "./components/Profiles/AdminProfile/AdminDashboard";
+import UpdateTrees from "./components/Profiles/AdminProfile/UpdateTrees";
+import KnowUsers from "./components/Profiles/AdminProfile/KnowUsers";
+import Orders from "./components/Profiles/AdminProfile/Orders";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +46,42 @@ const routes = createBrowserRouter([
         path: "/donate",
         element: <Donate />,
       },
+      {
+        path: "/user",
+        element: <UserProfile />,
+        children: [
+          {
+            path: "",
+            element: <UserInfo/>,
+          },
+          {
+            path: "/user/cart",
+            element: <UserCart/>,
+          },
+        ],
+      },
+      {
+        path: "/admin", 
+        element: <AdminProfile/>,
+        children: [
+          {
+            path: "",
+            element: <AdminDashboard/>,
+          },
+          {
+            path: "/admin/updateTrees",
+            element: <UpdateTrees/>,
+          },
+          {
+            path: "/admin/informationUser",
+            element: <KnowUsers/>,
+          },
+          {
+            path: "/admin/orders",
+            element: <Orders/>,
+          },
+        ],
+      },
     ],
   },
 ]);
@@ -46,6 +90,8 @@ function App() {
   return (
     <>
       <RouterProvider router={routes}></RouterProvider>
+
+      {/* <UserProfile/> */}
     </>
   );
 }

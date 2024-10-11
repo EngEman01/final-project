@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
             ref: 'trees' // Reference to Tree model
         }
     }]
-}, { timestamps: true });
+}, { timestamps: true, collection: 'user' }); // Specify the collection name here
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('User', userSchema); // Keep the model name capitalized for convention
 module.exports = User;

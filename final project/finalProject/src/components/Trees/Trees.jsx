@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Usefatch from '../Trees/getTrees';
 import styleTrees from './Trees.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 export default function Trees() {
-    const Trees = Usefatch();
+    const [trees, setTrees] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [showForm, setShowForm] = useState(false);
     const [priceFilter, setPriceFilter] = useState('');
     const [categoryFilter, setCategoryFilter] = useState('');
 
-    const handleSearchSubmit = (e) => {
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:4000/tree/getTrees");
+                const data = await response.json();
+                setTrees(data);
+            } catch (error) {
+                console.error("Error fetching trees:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleSearchSubmit = async (e) => {
         e.preventDefault();
-        // Fetch search
+        if (searchQuery) {
+            //fetch
+        } else {
+            const response = await fetch("http://localhost:4000/tree/getTrees");
+            const data = await response.json();
+            setTrees(data);
+        }
         setSearchQuery('');
     };
 
@@ -83,10 +103,8 @@ export default function Trees() {
                                         <option value="Native">Native</option>
                                         <option value="Fruit">Fruit</option>
                                         <option value="Evergreen">Evergreen</option>
-
                                     </select>
                                 </div>
-
 
                                 <button type="submit" onClick={toggleForm} className={styleTrees.closeButton}>Filter</button>
                             </form>
@@ -95,14 +113,14 @@ export default function Trees() {
                 )}
 
                 <div className={styleTrees.treeContainer}>
-                    {Trees.map((Tree) => (
-                        <div className={styleTrees.trees} key={Tree._id}>
-                            <img className={styleTrees.productImage} src={Tree.image[0]} alt="" />
-                            <h4 className={styleTrees.name}>{Tree.name}</h4>
-                            <h4 className={styleTrees.des}>{Tree.description}</h4>
-                            <h5>Pricing: <span style={{ color: 'green' }}>{Tree.price}</span></h5>
+                    {trees.map((tree) => (
+                        <div className={styleTrees.trees} key={tree._id}>
+                            <img className={styleTrees.productImage} src={tree.image[0]} alt="" />
+                            <h4 className={styleTrees.name}>{tree.name}</h4>
+                            <h4 className={styleTrees.des}>{tree.description}</h4>
+                            <h5>Pricing: <span style={{ color: 'green' }}>{tree.price}</span></h5>
                             <button className={styleTrees.details}>
-                                <Link to={`/trees/${Tree._id}`} className={styleTrees.link}>Details</Link>
+                                <Link to={`/trees/${tree._id}`} className={styleTrees.link}>Details</Link>
                             </button>
                         </div>
                     ))}

@@ -54,7 +54,7 @@ export default function UpdateTrees() {
                                 <th>trees</th>
                                 <th>amount</th>
                                 <th>price</th>
-                                <th>actins</th>
+                                <th>actions</th>
                             </tr>
                     {Trees.map((Tree) => (
                             <tr>

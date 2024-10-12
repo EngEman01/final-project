@@ -1,27 +1,40 @@
 const express = require('express');
 const router = express.Router();
-const Tree = require('../models/trees.js');
-const multer = require('multer');
-const path = require('path');
-const User = require('../models/user.js');
-const Order = require('../models/order.js');
-const Donation = require('../models/donation.js');
-const Cart = require('../models/cart.js');
-const Message = require('../models/message.js');
+const User = require('../models/user.js') // Ensure this path is correct
 
-
-
-const storageUser = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, '../finalProject/public/users-images/'); // Directory for user photos
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
+// Get all users
+router.get('/getUsers', async (req, res) => {
+    try {
+        const users = await User.find(); // Fetch all tree documents
+        console.log('Fetched users:', users);
+        res.status(200).json(users); // Send the users as a JSON response
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ message: 'Internal server error' }); // Handle errors
     }
 });
 
-const uploadUser = multer({ storage: storageUser });
+//get user by id
+router.get('/getUsers/:id', async (req, res) => {
+    const { id } = req.params;
 
+    try {
+        const user = await User.findById(id);
+
+        if (!user) {
+            return res.status(404).json({ message: 'user not found' });
+        }
+
+        res.json(user);
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+module.exports = router;
+
+//login
 //register
 router.post('/register', uploadUser.single('photo'), async (req, res) => {
     const { name, email, password, phone, address } = req.body;

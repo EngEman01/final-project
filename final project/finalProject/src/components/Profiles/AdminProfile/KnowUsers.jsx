@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Usefatch from '../../Trees/getTrees';
+import Usefatch from '../../Profiles/getUsers';
 import styleUpdateTrees from './UpdateTrees.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 export default function KnowUsers() {
-  const Trees = Usefatch();
+  const Users = Usefatch();
   const [searchQuery, setSearchQuery] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [priceFilter, setPriceFilter] = useState('');
@@ -35,7 +35,7 @@ export default function KnowUsers() {
     <>
     
     <div className={styleUpdateTrees.updatePage}>
-                <h1>All Trees</h1>
+                <h1>All Users</h1>
                 <form onSubmit={handleSearchSubmit} className={styleUpdateTrees.searchbox}>
                     <input
                         type="text"
@@ -51,16 +51,16 @@ export default function KnowUsers() {
 
                         <table className={styleUpdateTrees.trees}>
                              <tr>
-                                <th>trees</th>
-                                <th>amount</th>
-                                <th>price</th>
-                                <th>actins</th>
+                                <th>User</th>
+                                <th>phone</th>
+                                <th>address</th>
+                                <th>actions</th>
                             </tr>
-                    {Trees.map((Tree) => (
+                    {Users.map((user) => (
                             <tr>
-                                <td className={styleUpdateTrees.name}>{Tree.name}</td>
-                                <td>amount</td>
-                                <td className={styleUpdateTrees.price}>{Tree.price}</td>
+                                <td className={styleUpdateTrees.name}>{user.name}</td>
+                                <td>{user.phone}</td>
+                                <td className={styleUpdateTrees.price}>{user.address}</td>
                                 <td>
                                 <button className={styleUpdateTrees.delete}>
                                 delete

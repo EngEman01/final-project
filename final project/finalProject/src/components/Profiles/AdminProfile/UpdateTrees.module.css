@@ -1,6 +1,6 @@
-.allPage {
-    width: 100svw;
-    height: 500vh;
+.updatePage {
+    width: 70svw;
+    height: 200vh;
     margin-top: 100px;
     color: #46543e;
     display: flex;
@@ -8,17 +8,17 @@
     align-items: center;
 }
 
-.allPage h1 {
+.updatePage h1 {
     cursor: pointer;
     transition: 0.5s all;
 }
 
-.allPage h1:hover {
+.updatePage h1:hover {
     transform: scale(1.05);
     filter: drop-shadow(5px 0px 30px rgba(249, 219, 181, 0.567));
 }
 
-.treeContainer {
+.treeTable {
     width: 100%;
     padding: 0 100px;
     margin-top: 50px;
@@ -27,7 +27,7 @@
     gap: 40px;
 }
 
-.trees {
+/* .trees {
     height: 620px;
     border: 2px solid #46543e;
     border-radius: 15px;
@@ -45,12 +45,41 @@
 
 .trees:hover {
     transform: scale(1.07);
+} */
+
+table {
+    width: 90%;
+    height: 300px;
+    margin-top: 50px;
+    overflow-x: scroll;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 10px 5px 35px #333;
 }
+
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+th{
+    font-size: 23px;
+}
+
+tr:nth-child(even) {
+    color: #fff;
+    background-color: #577d3e;
+}
+
 
 .name {
 
     font-size: 30px;
-    text-shadow: 10px 6px 10px #46543e;
+    /* text-shadow: 10px 6px 10px #46543e; */
 }
 
 .des {
@@ -125,7 +154,7 @@
     /*remove it to make it toggle*/
 }
 
-.searchbox input:hover {
+.searchbox input:hover{
     width: 400px;
 }
 
@@ -209,4 +238,22 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     color: #46543e;
+}
+
+.delete , .update{
+    text-transform: capitalize;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    color: #fff;
+}
+
+.delete {
+    background-color: red;
+}
+
+.update {
+    background-color: rgb(6, 199, 6);
 }

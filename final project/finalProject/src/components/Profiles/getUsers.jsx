@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
 const Usefatch = () => {
-    let [trees, setTrees] = useState([]);
+    let [users, setUsers] = useState([]);
 
     let getData = async () => {
-        fetch("http://localhost:4000/tree/getTrees")
+        fetch("http://localhost:4000/user/getUsers")
             .then((res) => res.json())
             .then((data) => {
-                setTrees(data);
+                setUsers(data);
             })
     }
 
     getData();
-    return trees;
+    return users;
 }
 
 

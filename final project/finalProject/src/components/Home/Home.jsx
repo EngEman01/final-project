@@ -17,7 +17,7 @@ export default function Home() {
       <div>
         <ImageSlider />
       </div>
-
+      
       <div className={styleHome.plantes}>
         <img className={styleHome.imageTree} src="images/plante.png" alt="" />
 

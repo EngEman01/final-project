@@ -29,6 +29,8 @@ export default function Navbar() {
           <Link to="/about" className={styleNavbar.navElement}>About</Link>
           <Link to="/trees" className={styleNavbar.navElement}>Trees</Link>
           <Link to="/contact" className={styleNavbar.navElement}>Contact</Link>
+          <Link to="/user" className={styleNavbar.navElement}>user</Link>
+          <Link to="/admin" className={styleNavbar.navElement}>admin</Link>
 
           <div className={styleNavbar.profile}>
             <button className={styleNavbar.enter} onClick={toggleLoginPopup}>Login</button>

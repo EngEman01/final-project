@@ -9,10 +9,13 @@ export default function Donate() {
     const [success, setSuccess] = useState(null);
     const [trees, setTrees] = useState([]);
 
+    const userId = localStorage.getItem('userId');
+    console.log('User ID:', Id); // Check the value
     // const emailRegex = /^[A-Za-z]\w+@\w+\.\w+$/;
 
+
     useEffect(() => {
-        fetch("http://localhost:7000/trees")
+        fetch("http://localhost:4000/tree/getTrees")
             .then(response => response.json())
             .then(data => {
                 setTrees(data);
@@ -20,18 +23,48 @@ export default function Donate() {
             .catch(error => console.error("Error fetching trees:", error));
     }, []);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+
+
         event.preventDefault();
 
-        // if (!emailRegex.test(email)) {
-        //     setSuccess("Please enter a valid email (e.g., example@gmail.com)");
-        //     return;
-        // }
 
-        setSuccess(`Thank you for your donation of $${amount} ${donationType === 'specific' ? 'to ' + selectedTree : 'in general'}. We will contact you at ${email}.`);
-        setAmount('');
-        setEmail('');
-        setSelectedTree('');
+        let payload; // Declare payload properly
+
+        if (donationType === 'general') {
+            payload = {
+                donationType,
+                amount,
+                userId
+            };
+        } else {
+            payload = {
+                selectedTree,
+                amount,
+                userId
+            };
+        }
+        console.log(payload);
+        try {
+            const response = await fetch('http://localhost:4000/user/donate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'An unknown error occurred.');
+            }
+
+            setSuccess(`Thank you for your donation of $${amount} ${donationType === 'specific' ? 'to ' + selectedTree : 'in general'}. We will contact you at ${email}.`);
+            setAmount('');
+            setEmail('');
+            setSelectedTree('');
+        } catch (error) {
+            console.log(error)
+        }
     };
     useEffect(() => {
         if (success) {
@@ -49,9 +82,9 @@ export default function Donate() {
             <form onSubmit={handleSubmit} className={styleDonate.form}>
                 <label className={styleDonate.label}>
                     Donation Type:
-                    <select 
-                        value={donationType} 
-                        onChange={(e) => setDonationType(e.target.value)} 
+                    <select
+                        value={donationType}
+                        onChange={(e) => setDonationType(e.target.value)}
                         className={styleDonate.input}
                     >
                         <option value="general">General Donation</option>

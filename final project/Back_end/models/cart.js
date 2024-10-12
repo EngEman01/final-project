@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const cartSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -11,10 +13,10 @@ const cartSchema = new mongoose.Schema({
         },
         quantity: {
             type: Number,
-            required: true
+            default: 1
         }
     }]
-}, { timestamps: true });
+}, { timestamps: true, collection: 'cart' }); // Specify the collection name here
 
-const Cart = mongoose.model('cart', cartSchema);
+const Cart = mongoose.model('Cart', cartSchema); // Use capitalized model name for convention
 module.exports = Cart;

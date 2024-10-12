@@ -1,6 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js') // Ensure this path is correct
+const multer = require('multer')
+const Cart = require('../models/cart.js')
+const Donation = require('../models/donation.js')
+const Message = require('../models/message.js')
+const Order = require('../models/order.js')
+const Tree = require('../models/trees.js')
+
+const storageUser = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../finalProject/public/users-images/'); // Directory for tree photos
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+const uploadUser = multer({ storage: storageUser })
+
 
 // Get all users
 router.get('/getUsers', async (req, res) => {
@@ -58,18 +75,21 @@ router.post('/register', uploadUser.single('photo'), async (req, res) => {
 });
 //login
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;  
+    const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ email });  
-        if (!user || user.password !== password) { 
-            return res.status(401).json({ message: 'Invalid credentials' });
+        const user = await User.findOne({ email });
+        if(!user){
+            return res.status(404).json({message: 'Make sure you have an account'})
+        }
+        if ( user.password !== password) {
+            return res.status(401).json({ message: 'Wrong Password try again' });
         }
 
-        res.json({ user });  
+        res.json({ user });
     } catch (error) {
         console.error('Login error:', error);
-       
+
     }
 });
 // Show user profile
@@ -84,7 +104,7 @@ router.get('/profile/:id', async (req, res) => {
         res.json(user);
     } catch (error) {
         console.error('Error fetching user profile:', error);
-         
+
     }
 });
 
@@ -97,19 +117,25 @@ router.post('/donate', async (req, res) => {
         amount,
         userId
     });
-
     try {
+        const user = await User.findById(userId)
+        if (user) {
+            user.points += amount * 0.05;
+            console.log(user.points)
+        }
+        await user.save();
         await donation.save();
         res.status(201).json(donation);
     } catch (error) {
         console.error('Error making donation:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
+
 });
 
 // Add to cart
 router.post('/add-to-cart', async (req, res) => {
-    const { userId, treeId, quantity = 1 } = req.body;  
+    const { userId, treeId, quantity = 1 } = req.body;
 
     try {
         let cart = await Cart.findOne({ userId });
@@ -117,17 +143,17 @@ router.post('/add-to-cart', async (req, res) => {
         if (!cart) {
             cart = new Cart({ userId, trees: [] });
         }
- 
+
         const existingTree = cart.trees.find(tree => tree.treeId.toString() === treeId);
 
-        if (existingTree) { 
-            existingTree.quantity += quantity;  
+        if (existingTree) {
+            existingTree.quantity += quantity;
         } else {
             cart.trees.push({ treeId, quantity });
         }
         await cart.save();
 
-        res.status(200).json(cart);  
+        res.status(200).json(cart);
     } catch (error) {
         console.error('Error adding to cart:', error);
         res.status(500).json({ message: 'Internal server error' });
@@ -217,18 +243,39 @@ router.get('/totalPrice/:cartId', async (req, res) => {
 
 // Place an order
 router.post('/order', async (req, res) => {
-    const { userId, trees, total_amount, total_price } = req.body;
-
-    const order = new Order({
-        userId,
-        trees,
-        total_amount,
-        total_price
-    });
-
+    var { userId, trees, total_price, checkPoint } = req.body;
     try {
+        const user = await User.findById(userId)
+        const points = parseInt(user.points)
+        if (checkPoint) {
+            total_price -= points
+            user.points = 0
+            await user.save()
+        }
+
+        for ({ treeId, quantity } of trees) {
+            const tree = await Tree.findById(treeId)
+            if (tree.inventory > quantity) {
+                tree.inventory -= quantity
+                tree.save()
+            } else {
+                res.send(`The avalible quantity is ${tree.inventory}`)
+            }
+
+        }
+
+
+        const order = new Order({
+            userId,
+            trees,
+            total_price
+        });
         await order.save();
+        user.points += total_price * 0.05;
+        await user.save()
         res.status(201).json(order);
+
+
     } catch (error) {
         console.error('Error placing order:', error);
         res.status(500).json({ message: 'Internal server error' });

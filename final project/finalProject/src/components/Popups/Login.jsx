@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import styleLogin from "./Login.module.css";
 
@@ -9,7 +10,7 @@ export default function Login() {
 
   const emailRegex = /^[A-Za-z]\w+@\w+\.\w+$/;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!emailRegex.test(email)) {
@@ -17,12 +18,34 @@ export default function Login() {
       return;
     }
 
-    setError("");  
-    setSuccess("Welcome back!");
+    const payload = {
+      email,
+      password,
+    };
 
-   
-    setEmail("");
-    setPassword("");
+    try {
+      const response = await fetch('http://localhost:4000/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Set content type to JSON
+        },
+        body: JSON.stringify(payload), // Convert payload to JSON string
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'An unknown error occurred.');
+      }
+
+      const result = await response.json();
+      localStorage.setItem('userId', result.user._id); // Adjust according to your response structure
+      setError("");
+      setSuccess("Welcome back!");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   useEffect(() => {
@@ -30,7 +53,6 @@ export default function Login() {
       const timer = setTimeout(() => {
         setSuccess(null);
       }, 5000);
-
       return () => clearTimeout(timer);
     }
   }, [success]);
@@ -72,4 +94,3 @@ export default function Login() {
     </div>
   );
 }
-

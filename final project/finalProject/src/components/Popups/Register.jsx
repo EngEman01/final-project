@@ -8,42 +8,71 @@ export default function Register() {
   const [phone, setPhone] = useState("");
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState("");
+  const [address, setAddress] = useState("");
+  const [photo, setPhoto] = useState(null);
 
-  
   const phoneRegex = /^(01)\d{9}$/;
   const nameRegex = /^[A-Z]\w{2,}\s[A-Z]\w{2,}$/;
   const emailRegex = /^[A-Za-z]\w+@\w+\.\w+$/;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    
+
     if (!nameRegex.test(name)) {
       setError("Invalid name. Make sure both names start with a capital letter and are at least 3 characters long.");
       return;
     }
 
-   
+
     if (!emailRegex.test(email)) {
       setError("Invalid email format.");
       return;
     }
 
-    
+
     if (!phoneRegex.test(phone)) {
       setError("Invalid phone number. It should start with '01' and be 11 digits long.");
       return;
     }
 
-    setError("");  
+    setError("");
 
-    setSuccess(`Thank you for registering, ${name}. A confirmation email will be sent to ${email}.`);
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("address", address);
+    formData.append("phone", phone);
+    if (photo) {
+      formData.append("photo", photo);
+    }
+    try {
+      const response = await fetch('http://localhost:4000/user/register', {
+        method: 'POST',
 
-    
-    setName("");
-    setEmail("");
-    setPassword("");
-    setPhone("");
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Registration failed. Please try again.');
+      }
+      const result = await response.json();
+      // Store the user ID in local storage
+      localStorage.setItem('userId', result._id);
+
+      setSuccess(`Thank you for registering, ${name}.`);
+
+      // Clear form fields
+      setName("");
+      setEmail("");
+      setPassword("");
+      setPhone("");
+      setAddress("");
+      setPhoto(null);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   useEffect(() => {
@@ -107,6 +136,31 @@ export default function Register() {
             className={styleRegister.input}
           />
         </label>
+        <br />
+        <label className={styleRegister.label}>
+          Address:
+          <input
+            type="text"
+            placeholder="Enter your Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+            className={styleRegister.input}
+          />
+        </label>
+
+        <br />
+        <label className={styleRegister.label}>
+          Photo:
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setPhoto(e.target.files[0])}
+            className={styleRegister.input}
+          />
+        </label>
+
+
         <br />
         <button type="submit" className={styleRegister.button}>
           Register

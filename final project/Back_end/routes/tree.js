@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Tree = require('../models/trees.js');  
+const Tree = require('../models/trees.js');
 const multer = require('multer');
 const path = require('path');
 
@@ -41,6 +41,27 @@ router.get('/getTrees/:id', async (req, res) => {
     } catch (error) {
         console.error('Error fetching tree:', error);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// get the count of trees
+router.get('/count', async (req, res) => {
+    try {
+        const treeCount = await Tree.countDocuments(); // Count the number of documents in the 'trees' collection
+        res.json({ count: treeCount });
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching tree count' });
+    }
+});
+
+
+router.get('/low-inventory-count', async (req, res) => {
+    try {
+        // Filter trees where inventory is less than or equal to 5
+        const lowInventoryCount = await Tree.countDocuments({ inventory: { $lte: 5 } });
+        res.json({ count: lowInventoryCount });
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching low inventory tree count' });
     }
 });
 
@@ -122,20 +143,20 @@ router.get('/filterTrees', async (req, res) => {
     try {
         const { category, minPrice, maxPrice } = req.query;
 
-        
+
         const filter = {};
 
         if (category) {
-            filter.category = category;  
+            filter.category = category;
         }
 
         if (minPrice || maxPrice) {
-            filter.price = {};  
+            filter.price = {};
             if (minPrice) {
-                filter.price.$gte = Number(minPrice);  
+                filter.price.$gte = Number(minPrice);
             }
             if (maxPrice) {
-                filter.price.$lte = Number(maxPrice);  
+                filter.price.$lte = Number(maxPrice);
             }
         }
 

@@ -10,9 +10,7 @@ export default function Donate() {
     const [trees, setTrees] = useState([]);
 
     const userId = localStorage.getItem('userId');
-    console.log('User ID:', Id); // Check the value
-    // const emailRegex = /^[A-Za-z]\w+@\w+\.\w+$/;
-
+    console.log('User ID:', userId); 
 
     useEffect(() => {
         fetch("http://localhost:4000/tree/getTrees")
@@ -33,13 +31,13 @@ export default function Donate() {
 
         if (donationType === 'general') {
             payload = {
-                donationType,
+                tree: donationType,
                 amount,
                 userId
             };
         } else {
             payload = {
-                selectedTree,
+                tree: selectedTree,
                 amount,
                 userId
             };

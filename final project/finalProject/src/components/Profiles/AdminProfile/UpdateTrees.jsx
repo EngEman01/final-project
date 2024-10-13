@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Usefatch from '../../Trees/getTrees';
 import styleUpdateTrees from './UpdateTrees.module.css'
@@ -6,15 +6,45 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 export default function UpdateTrees() {
-    const Trees = Usefatch();
+    // const Trees = Usefatch();
     const [searchQuery, setSearchQuery] = useState('');
     const [showForm, setShowForm] = useState(false);
     const [priceFilter, setPriceFilter] = useState('');
     const [categoryFilter, setCategoryFilter] = useState('');
+    const [Trees, setTrees] = useState([])
 
-    const handleSearchSubmit = (e) => {
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:4000/tree/getTrees");
+                const data = await response.json();
+                setTrees(data);
+            } catch (error) {
+                console.error("Error fetching trees:", error);
+            }
+        };
+
+        fetchData();
+    },[]);
+
+
+    const handleSearchSubmit = async (e) => {
         e.preventDefault();
-        // Fetch search
+        if (searchQuery) {
+            try {
+                const response = await fetch(`http://localhost:4000/tree/searchTrees?name=${searchQuery}`);
+                const data = await response.json();
+                setTrees(data)
+            }
+            catch (error) {
+                console.log(error);
+            }
+        } else {
+            const response = await fetch("http://localhost:4000/tree/getTrees");
+            const data = await response.json();
+            setTrees(data);
+        }
         setSearchQuery('');
     };
 
@@ -49,30 +79,30 @@ export default function UpdateTrees() {
                     </button>
                 </form>
 
-                        <table className={styleUpdateTrees.trees}>
-                             <tr>
-                                <th>trees</th>
-                                <th>amount</th>
-                                <th>price</th>
-                                <th>actions</th>
-                            </tr>
+                <table className={styleUpdateTrees.trees}>
+                    <tr>
+                        <th>trees</th>
+                        <th>amount</th>
+                        <th>price</th>
+                        <th>actions</th>
+                    </tr>
                     {Trees.map((Tree) => (
-                            <tr>
-                                <td className={styleUpdateTrees.name}>{Tree.name}</td>
-                                <td>{Tree.inventory}</td>
-                                <td className={styleUpdateTrees.price}>{Tree.price}</td>
-                                <td>
+                        <tr>
+                            <td className={styleUpdateTrees.name}>{Tree.name}</td>
+                            <td>{Tree.inventory}</td>
+                            <td className={styleUpdateTrees.price}>{Tree.price}</td>
+                            <td>
                                 <button className={styleUpdateTrees.delete}>
-                                delete
+                                    delete
                                 </button>
                                 <button className={styleUpdateTrees.update}>
-                                update
+                                    update
                                 </button>
-                                </td>
-                            </tr>
-                      
+                            </td>
+                        </tr>
+
                     ))}
-                     </table>
+                </table>
             </div>
         </>
     )

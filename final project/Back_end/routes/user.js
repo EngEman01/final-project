@@ -49,6 +49,16 @@ router.get('/getUsers/:id', async (req, res) => {
     }
 });
 
+// get the count of users
+router.get('/count', async (req, res) => {
+    try {
+      const userCount = await User.countDocuments(); // Count the number of documents in the 'trees' collection
+      res.json({ count: userCount });
+    } catch (error) {
+      res.status(500).json({ error: 'Error fetching tree count' });
+    }
+  });
+
 module.exports = router;
 
 //login

@@ -44,6 +44,27 @@ router.get('/getTrees/:id', async (req, res) => {
     }
 });
 
+// get the count of trees
+router.get('/count', async (req, res) => {
+    try {
+        const treeCount = await Tree.countDocuments(); // Count the number of documents in the 'trees' collection
+        res.json({ count: treeCount });
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching tree count' });
+    }
+});
+
+
+router.get('/low-inventory-count', async (req, res) => {
+    try {
+        // Filter trees where inventory is less than or equal to 5
+        const lowInventoryCount = await Tree.countDocuments({ inventory: { $lte: 5 } });
+        res.json({ count: lowInventoryCount });
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching low inventory tree count' });
+    }
+});
+
 // add tree
 router.post('/addTree', uploadTree, async (req, res) => {
     const { name, category, price, description, inventory, care } = req.body;
@@ -72,6 +93,10 @@ router.put('/editTree/:id', uploadTree, async (req, res) => {
     const { id } = req.params;
     const { name, category, price, description, inventory, care } = req.body;
 
+    // Validate that required fields are provided
+    if (!name || !category || !price || !inventory) {
+        return res.status(400).json({ message: 'Please provide all required fields' });
+    }
 
     try {
         const updatedTree = await Tree.findByIdAndUpdate(
@@ -83,10 +108,10 @@ router.put('/editTree/:id', uploadTree, async (req, res) => {
         if (!updatedTree) {
             return res.status(404).json({ message: 'Tree not found' });
         }
-        res.json(updatedTree);
+        res.status(200).json(updatedTree);
     } catch (error) {
         console.error('Error editing tree:', error);
-
+        res.status(500).json({ message: 'Error updating tree' });
     }
 });
 //delete tree
@@ -102,6 +127,7 @@ router.delete('/deleteTree/:id', async (req, res) => {
         res.status(204).send();
     } catch (error) {
         console.error('Error deleting tree:', error);
+        res.status(500).json({ message: 'Error deleting tree' });
 
     }
 });

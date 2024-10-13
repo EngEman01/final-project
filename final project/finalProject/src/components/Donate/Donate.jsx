@@ -152,7 +152,10 @@ export default function Donate() {
     const [trees, setTrees] = useState([]);
 
     const userId = localStorage.getItem('userId');
+
     console.log('User ID:', userId);
+
+
 
     useEffect(() => {
         fetch("http://localhost:4000/tree/getTrees")

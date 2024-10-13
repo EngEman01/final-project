@@ -30,7 +30,7 @@ export default function Adminsidebar() {
         <FontAwesomeIcon icon={faShoppingCart} className={styleAdminSidebar.icon} title="Cart" />
         orders
       </Link>
-      <Link to="/admin" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/logout" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faSignOutAlt} className={styleAdminSidebar.icon} title="Logout" />
         logout
       </Link>

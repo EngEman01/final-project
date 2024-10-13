@@ -15,6 +15,7 @@ import AdminDashboard from "./components/Profiles/AdminProfile/AdminDashboard";
 import UpdateTrees from "./components/Profiles/AdminProfile/UpdateTrees";
 import KnowUsers from "./components/Profiles/AdminProfile/KnowUsers";
 import Orders from "./components/Profiles/AdminProfile/Orders";
+import Logout from "./components/Profiles/Logout";
 
 const routes = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const routes = createBrowserRouter([
             path: "/user/cart",
             element: <UserCart/>,
           },
+          {
+            path: "/user/logout",
+            element: <Logout/>,
+          },
         ],
       },
       {
@@ -79,6 +84,10 @@ const routes = createBrowserRouter([
           {
             path: "/admin/orders",
             element: <Orders/>,
+          },
+          {
+            path: "/admin/logout",
+            element: <Logout/>,
           },
         ],
       },

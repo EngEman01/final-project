@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Order = require('../models/order.js');  
-const multer = require('multer');
-const path = require('path');
+const Order = require('../models/order.js');
 
 // Get all orders
 router.get('/getOrders', async (req, res) => {

@@ -61,12 +61,13 @@ table {
     box-shadow: 10px 5px 35px #333;
 }
 
-td, th {
+td,
+th {
     text-align: center;
     padding: 8px;
 }
 
-th{
+th {
     font-size: 23px;
 }
 
@@ -150,11 +151,11 @@ tr:nth-child(even) {
     transition: 0.8s;
     background: transparent;
     color: #46543e;
-   
+
     /*remove it to make it toggle*/
 }
 
-.searchbox input:hover{
+.searchbox input:hover {
     width: 400px;
 }
 
@@ -240,7 +241,8 @@ tr:nth-child(even) {
     color: #46543e;
 }
 
-.delete , .update{
+.delete,
+.update {
     text-transform: capitalize;
     margin-left: 10px;
     border: none;
@@ -258,7 +260,7 @@ tr:nth-child(even) {
     background-color: rgb(6, 199, 6);
 }
 
-.addButton{
+.addButton {
     background-color: #72a551;
     width: 150px;
     border-radius: 10px;

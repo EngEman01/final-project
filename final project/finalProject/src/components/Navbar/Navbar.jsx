@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Login from "../Popups/Login";  
+import Login from "../Popups/Login";
 import Register from "../Popups/Register";
 import styleNavbar from './Navbar.module.css';
 
 export default function Navbar() {
-  const [isLoginOpen, setIsLoginOpen] = useState(false); 
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const toggleLoginPopup = () => {
@@ -39,7 +39,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      
+
       {isLoginOpen && (
         <div className={styleNavbar.popup}>
           <div className={styleNavbar.popupInner}>
@@ -49,7 +49,7 @@ export default function Navbar() {
         </div>
       )}
 
-      
+
       {isRegisterOpen && (
         <div className={styleNavbar.popup}>
           <div className={styleNavbar.popupInner}>

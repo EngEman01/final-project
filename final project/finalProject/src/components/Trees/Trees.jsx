@@ -161,7 +161,7 @@ export default function Trees() {
                                 <img className={styleTrees.productImage} src={tree.image[0]} alt={tree.name} />
                                 <h4 className={styleTrees.name}>{tree.name}</h4>
                                 <h4 className={styleTrees.des}>{tree.description}</h4>
-                                <h5>Pricing: <span style={{ color: 'green' }}>{tree.price}</span></h5>
+                                <h5 className={styleTrees.price} > Pricing: <span style={{ color: 'green' }}>{tree.price}</span></h5>
                                 <button className={styleTrees.details}>
                                     <Link to={`/trees/${tree._id}`} className={styleTrees.link}>Details</Link>
                                 </button>

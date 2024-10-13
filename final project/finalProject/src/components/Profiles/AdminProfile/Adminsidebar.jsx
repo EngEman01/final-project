@@ -14,23 +14,23 @@ export default function Adminsidebar() {
 
     </div>
     <div className={styleAdminSidebar.links}>
-      <Link to="/admin" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/profile/dashboard" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faUser} className={styleAdminSidebar.icon} title="Profile" />
         dashboard
       </Link>
-      <Link to="/admin/updateTrees" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/profile/updateTrees" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faUser} className={styleAdminSidebar.icon} title="Profile" />
         trees
       </Link>
-      <Link to="/admin/informationUser" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/profile/informationUser" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faShoppingCart} className={styleAdminSidebar.icon} title="Cart" />
         users
       </Link>
-      <Link to="/admin/orders" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/profile/orders" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faShoppingCart} className={styleAdminSidebar.icon} title="Cart" />
         orders
       </Link>
-      <Link to="/admin/logout" className={styleAdminSidebar.adminElement}>
+      <Link to="/admin/profile/logout" className={styleAdminSidebar.adminElement}>
         <FontAwesomeIcon icon={faSignOutAlt} className={styleAdminSidebar.icon} title="Logout" />
         logout
       </Link>

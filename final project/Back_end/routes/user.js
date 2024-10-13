@@ -22,7 +22,7 @@ const uploadUser = multer({ storage: storageUser })
 // Get all users
 router.get('/getUsers', async (req, res) => {
     try {
-        const users = await User.find(); // Fetch all tree documents
+        const users = await User.find({ 'type': 'user' }); // Fetch all tree documents
         console.log('Fetched users:', users);
         res.status(200).json(users); // Send the users as a JSON response
     } catch (error) {
@@ -52,12 +52,12 @@ router.get('/getUsers/:id', async (req, res) => {
 // get the count of users
 router.get('/count', async (req, res) => {
     try {
-      const userCount = await User.countDocuments(); // Count the number of documents in the 'trees' collection
-      res.json({ count: userCount });
+        const userCount = await User.countDocuments(); // Count the number of documents in the 'trees' collection
+        res.json({ count: userCount });
     } catch (error) {
-      res.status(500).json({ error: 'Error fetching tree count' });
+        res.status(500).json({ error: 'Error fetching tree count' });
     }
-  });
+});
 
 module.exports = router;
 
@@ -371,11 +371,11 @@ router.post('/order', async (req, res) => {
 router.delete('/remove-from-cart/:userId/:treeId', async (req, res) => {
     const { userId, treeId } = req.params;
     try {
-        
+
         const updatedCart = await Cart.findOneAndUpdate(
-            { userId }, 
-            { $pull: { trees: { treeId } } },  
-            { new: true }  
+            { userId },
+            { $pull: { trees: { treeId } } },
+            { new: true }
         );
 
         if (!updatedCart) {

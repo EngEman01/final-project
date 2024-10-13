@@ -8,7 +8,7 @@
     font-style: normal;
 } */
 
-.navbar{
+.navbar {
     width: 100%;
     height: 12%;
     padding: 20px;
@@ -17,15 +17,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background:linear-gradient(#46543e , #46543e95 ) ;
+    background: linear-gradient(#46543e, #46543e95);
     color: antiquewhite;
 }
 
-.logo{
+.logo {
     width: 20%;
 }
 
-.logo h1{
+.logo h1 {
     font-family: "Londrina Solid", sans-serif;
     font-size: 50px;
     font-weight: 850;
@@ -37,13 +37,14 @@
     transition: 0.5s ease-out;
 }
 
-.logo h1:hover{
+.logo h1:hover {
     transform: scale(1.09);
     color: #dae8d5;
-    filter: drop-shadow(5px 0px 30px rgba(249, 219, 181, 0.567) );
+    filter: drop-shadow(5px 0px 30px rgba(249, 219, 181, 0.567));
 
 }
-.enter{
+
+.enter {
     background-color: transparent;
     border: none;
     font-size: 28px;
@@ -54,11 +55,12 @@
     position: relative;
     transition: 0.5s ease-in;
     margin-right: 40px;
-    
-    
+
+
 
 }
-.enter::before{
+
+.enter::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -71,24 +73,25 @@
     transition: transform 0.3s;
 }
 
-.enter:hover::before{
+.enter:hover::before {
     transform: scaleX(1);
     background-color: #c1c8be;
     transform-origin: bottom left;
 }
-.enter:hover{
+
+.enter:hover {
     /* transform: scale(1.2); */
     color: #c1c8be;
-    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154) );
+    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154));
 }
 
-.links{
+.links {
     width: 80%;
     display: flex;
     justify-content: space-around;
 }
 
-.navElement{
+.navElement {
     font-size: 28px;
     display: inline-block;
     color: antiquewhite;
@@ -98,7 +101,7 @@
     transition: 0.5s ease-in;
 }
 
-.navElement::before{
+.navElement::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -111,16 +114,16 @@
     transition: transform 0.3s;
 }
 
-.navElement:hover::before{
+.navElement:hover::before {
     transform: scaleX(1);
     background-color: #c1c8be;
     transform-origin: bottom left;
 }
 
-.navElement:hover{
+.navElement:hover {
     /* transform: scale(1.2); */
     color: #c1c8be;
-    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154) );
+    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154));
 }
 
 
@@ -135,16 +138,16 @@
     justify-content: center;
     align-items: center;
     z-index: 2000;
-  }
-  
-  .popupInner {
+}
+
+.popupInner {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     position: relative;
-  }
-  
-  .closeBtn {
+}
+
+.closeBtn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -152,5 +155,4 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-  }
-  
+}

@@ -1,6 +1,6 @@
 .updatePage {
     width: 70svw;
-    height: 200vh;
+    height: 300vh;
     margin-top: 100px;
     color: #46543e;
     display: flex;
@@ -256,4 +256,14 @@ tr:nth-child(even) {
 
 .update {
     background-color: rgb(6, 199, 6);
+}
+
+.addButton{
+    background-color: #72a551;
+    width: 150px;
+    border-radius: 10px;
+    margin: 40px;
+    position: absolute;
+    right: 0;
+    font-size: 23px;
 }

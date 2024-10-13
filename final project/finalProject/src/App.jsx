@@ -15,6 +15,8 @@ import AdminDashboard from "./components/Profiles/AdminProfile/AdminDashboard";
 import UpdateTrees from "./components/Profiles/AdminProfile/UpdateTrees";
 import KnowUsers from "./components/Profiles/AdminProfile/KnowUsers";
 import Orders from "./components/Profiles/AdminProfile/Orders";
+import EditTree from "./components/Profiles/AdminProfile/EditTree/EditTree";
+import AddTree from "./components/Profiles/AdminProfile/AddTree/AddTree";
 
 const routes = createBrowserRouter([
   {
@@ -79,6 +81,14 @@ const routes = createBrowserRouter([
           {
             path: "/admin/orders",
             element: <Orders/>,
+          },
+          {
+            path: "/admin/editTree/:id", 
+            element: <EditTree />,
+          },
+          {
+             path: "/admin/addTree",
+             element: <AddTree /> 
           },
         ],
       },

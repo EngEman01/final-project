@@ -93,6 +93,7 @@ import styleHome from "./Home.module.css";
 import { Link } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import Donate from "../Donate/Donate";
+import './Carousel.css';
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -103,10 +104,100 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <ImageSlider />
+
+      <div
+        id="carouselExampleDark"
+        className="carousel carousel-dark slide"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+      >
+        <div className="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            className="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img
+              src="/images/homeBackground.JPG"
+              className="d-block w-100 carousel-image"
+              alt="First slide"
+              onError={(e) => (e.target.src = '/images/placeholder.jpg')}
+            />
+            <div className="carousel-caption d-none d-md-block text-center"> {/* Center text */}
+              <p className="carousel-text" style={{ color: '#46543e' }}>Mature trees store carbon and help fight global warming. Every tree planted is a step towards a cooler planet!</p>
+            </div>
+          </div>
+
+          <div className="carousel-item">
+            <img
+              src="/tree-images/carob tree 2.jpeg"
+              className="d-block w-100 carousel-image"
+              alt="Second slide"
+              onError={(e) => (e.target.src = '/images/placeholder.jpg')}
+            />
+            <div className="carousel-caption d-none d-md-block text-center"> {/* Center text */}
+              <p className="carousel-text">Climate change is real, but so is our power to combat it. Join us in planting trees that will protect our future.</p>
+            </div>
+          </div>
+
+          <div className="carousel-item">
+            <img
+              src="/tree-images/sycamore fig 2.jpeg"
+              className="d-block w-100 carousel-image"
+              alt="Third slide"
+              onError={(e) => (e.target.src = '/images/placeholder.jpg')}
+            />
+            <div className="carousel-caption d-none d-md-block text-center"> {/* Center text */}
+              <p className="carousel-text">Let's grow a sustainable future, one tree at a time. Your small action today can create a big change tomorrow.</p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+          aria-label="Previous"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+          aria-label="Next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
-      
+
+      {/* <div>
+        <ImageSlider />
+      </div> */}
+
       <div className={styleHome.plantes}>
         <img className={styleHome.imageTree} src="images/plante.png" alt="" />
 

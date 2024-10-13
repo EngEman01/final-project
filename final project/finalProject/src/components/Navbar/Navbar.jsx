@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link to="/contact" className={styleNavbar.navElement}>Contact</Link>
           <Link to="/user" className={styleNavbar.navElement}>user</Link>
           <Link to="/admin" className={styleNavbar.navElement}>admin</Link>
-
+          <Link to="/cart" className={styleNavbar.navElement}>Cart</Link>
           <div className={styleNavbar.profile}>
             <button className={styleNavbar.enter} onClick={toggleLoginPopup}>Login</button>
             <button className={styleNavbar.enter} onClick={toggleRegisterPopup}>Register</button>

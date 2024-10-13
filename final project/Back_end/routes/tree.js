@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Tree = require('../models/trees.js');  
+const Tree = require('../models/trees.js');
 const multer = require('multer');
 const path = require('path');
 
@@ -18,7 +18,7 @@ const uploadTree = multer({ storage: storageTree }).array('images', 3);
 router.get('/getTrees', async (req, res) => {
     try {
         const trees = await Tree.find(); // Fetch all tree documents
-        console.log('Fetched trees:', trees);
+
         res.status(200).json(trees); // Send the trees as a JSON response
     } catch (error) {
         console.error('Error fetching trees:', error);
@@ -122,20 +122,20 @@ router.get('/filterTrees', async (req, res) => {
     try {
         const { category, minPrice, maxPrice } = req.query;
 
-        
+
         const filter = {};
 
         if (category) {
-            filter.category = category;  
+            filter.category = category;
         }
 
         if (minPrice || maxPrice) {
-            filter.price = {};  
+            filter.price = {};
             if (minPrice) {
-                filter.price.$gte = Number(minPrice);  
+                filter.price.$gte = Number(minPrice);
             }
             if (maxPrice) {
-                filter.price.$lte = Number(maxPrice);  
+                filter.price.$lte = Number(maxPrice);
             }
         }
 

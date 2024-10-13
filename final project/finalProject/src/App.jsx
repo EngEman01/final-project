@@ -15,7 +15,7 @@ import AdminDashboard from "./components/Profiles/AdminProfile/AdminDashboard";
 import UpdateTrees from "./components/Profiles/AdminProfile/UpdateTrees";
 import KnowUsers from "./components/Profiles/AdminProfile/KnowUsers";
 import Orders from "./components/Profiles/AdminProfile/Orders";
-
+import Cart from './components/Cart/Cart'
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -47,38 +47,42 @@ const routes = createBrowserRouter([
         element: <Donate />,
       },
       {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
         path: "/user",
         element: <UserProfile />,
         children: [
           {
             path: "",
-            element: <UserInfo/>,
+            element: <UserInfo />,
           },
           {
             path: "/user/cart",
-            element: <UserCart/>,
+            element: <UserCart />,
           },
         ],
       },
       {
-        path: "/admin", 
-        element: <AdminProfile/>,
+        path: "/admin",
+        element: <AdminProfile />,
         children: [
           {
             path: "",
-            element: <AdminDashboard/>,
+            element: <AdminDashboard />,
           },
           {
             path: "/admin/updateTrees",
-            element: <UpdateTrees/>,
+            element: <UpdateTrees />,
           },
           {
             path: "/admin/informationUser",
-            element: <KnowUsers/>,
+            element: <KnowUsers />,
           },
           {
             path: "/admin/orders",
-            element: <Orders/>,
+            element: <Orders />,
           },
         ],
       },

@@ -29,7 +29,7 @@ export default function UpdateTrees() {
         };
 
         fetchData();
-    },[]);
+    }, []);
 
 
     const handleSearchSubmit = async (e) => {
@@ -69,7 +69,7 @@ export default function UpdateTrees() {
             const response = await fetch(`http://localhost:4000/tree/deleteTree/${id}`, {
                 method: 'DELETE',
             });
-    
+
             if (response.ok) {
                 const updatedTrees = Trees.filter(tree => tree._id !== id);
                 setTrees(updatedTrees); // Update the state to remove the deleted tree
@@ -82,66 +82,66 @@ export default function UpdateTrees() {
             alert('Error deleting tree. Please try again.'); // Show error message
         }
     };
-    
+
     const handleEditClick = (id) => {
-        navigate(`/admin/editTree/${id}`); 
+        navigate(`/admin/profile/editTree/${id}`);
     };
-    const handleAddTree =()=>{
-        navigate('/admin/addTree')
+    const handleAddTree = () => {
+        navigate('/admin/profile/addTree')
     }
 
     return (
         <>
-    <div className={styleUpdateTrees.updatePage}>
-    <h1>All Trees</h1>
-    <button  onClick={() => handleAddTree()} className={styleUpdateTrees.addButton}>Add Tree</button>
-    <form onSubmit={handleSearchSubmit} className={styleUpdateTrees.searchbox}>
-        <input
-            type="text"
-            placeholder="Search trees..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={styleUpdateTrees.searchBar}
-        />
-        <button type="submit" className={styleUpdateTrees.searchButton}>
-            <FontAwesomeIcon icon={faSearch} className='sicon' />
-        </button>
-    </form>
+            <div className={styleUpdateTrees.updatePage}>
+                <h1>All Trees</h1>
+                <button onClick={() => handleAddTree()} className={styleUpdateTrees.addButton}>Add Tree</button>
+                <form onSubmit={handleSearchSubmit} className={styleUpdateTrees.searchbox}>
+                    <input
+                        type="text"
+                        placeholder="Search trees..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className={styleUpdateTrees.searchBar}
+                    />
+                    <button type="submit" className={styleUpdateTrees.searchButton}>
+                        <FontAwesomeIcon icon={faSearch} className='sicon' />
+                    </button>
+                </form>
 
-    <table className={styleUpdateTrees.trees}>
-        <thead>
-            <tr>
-                <th>Trees</th>
-                <th>Amount</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {Trees.map((Tree) => (
-                <tr key={Tree._id}>
-                    <td className={styleUpdateTrees.name}>{Tree.name}</td>
-                    <td>{Tree.inventory}</td>
-                    <td className={styleUpdateTrees.price}>{Tree.price}</td>
-                    <td>
-                        <button 
-                            className={styleUpdateTrees.delete} 
-                            onClick={() => deleteProduct(Tree._id)}
-                        >
-                            Delete
-                        </button>
-                        <button  
-                            onClick={() => handleEditClick(Tree._id)} 
-                            className={styleUpdateTrees.update}
-                        >
-                            Edit
-                        </button>
-                    </td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
-</div>
+                <table className={styleUpdateTrees.trees}>
+                    <thead>
+                        <tr>
+                            <th>Trees</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Trees.map((Tree) => (
+                            <tr key={Tree._id}>
+                                <td className={styleUpdateTrees.name}>{Tree.name}</td>
+                                <td>{Tree.inventory}</td>
+                                <td className={styleUpdateTrees.price}>{Tree.price}</td>
+                                <td>
+                                    <button
+                                        className={styleUpdateTrees.delete}
+                                        onClick={() => deleteProduct(Tree._id)}
+                                    >
+                                        Delete
+                                    </button>
+                                    <button
+                                        onClick={() => handleEditClick(Tree._id)}
+                                        className={styleUpdateTrees.update}
+                                    >
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
         </>
     )

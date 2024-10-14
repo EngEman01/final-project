@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
- import styleUpdateTrees from './StyleUpdateTrees.module.css'; 
+import styleUpdateTrees from './StyleUpdateTrees.module.css';
 
 export default function EditTree() {
-    const { id } = useParams(); 
+    const { id } = useParams();
     const navigate = useNavigate(); // To redirect after a successful update
     const [treeData, setTreeData] = useState({
         name: '',
@@ -16,16 +16,16 @@ export default function EditTree() {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
-    
+
     useEffect(() => {
         const fetchTreeData = async () => {
             try {
                 const response = await fetch(`http://localhost:4000/tree/getTrees/${id}`);
-                
+
                 if (response.ok) {
                     const data = await response.json();
                     // console.log('Tree Data:', data);
-                    
+
                     setTreeData(data);
                 } else {
                     setErrorMessage('Error fetching tree details.');
@@ -142,7 +142,7 @@ export default function EditTree() {
                         onChange={handleInputChange}
                     />
                 </label>
-                <button type="submit" className={styleUpdateTrees.updateButton}>
+                <button type="submit" className={styleUpdateTrees.updatebutton}>
                     Update Tree
                 </button>
             </form>

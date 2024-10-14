@@ -2,29 +2,29 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styleAddTree from './AddTree.module.css';
 
-export default function AddTree(){
-    const [treeData, setTreeData]= useState({
+export default function AddTree() {
+    const [treeData, setTreeData] = useState({
         name: '',
         category: '',
         price: '',
         description: '',
         inventory: '',
         care: '',
- });
- const [imageFiles, setImageFiles] = useState(null);
- const [errorMessage, setErrorMessage] = useState('');
-const [successMessage, setSuccessMessage] = useState('');
-const navigate = useNavigate();
-
-const handleInputChange =(e)=>{
-    setTreeData({
-        ...treeData,
-        [e.target.name]: e.target.value,
     });
-}
-const handleFileChange =(e)=>{
-    setImageFiles(e.target.files);
-}
+    const [imageFiles, setImageFiles] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
+
+    const handleInputChange = (e) => {
+        setTreeData({
+            ...treeData,
+            [e.target.name]: e.target.value,
+        });
+    }
+    const handleFileChange = (e) => {
+        setImageFiles(e.target.files);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,12 +43,12 @@ const handleFileChange =(e)=>{
                 formData.append('images', imageFiles[i]);
             }
         }
-        try{
-            const response = await fetch('http://localhost:4000/tree/addTree',{
+        try {
+            const response = await fetch('http://localhost:4000/tree/addTree', {
                 method: 'POST',
                 body: formData,
             });
-            if(response.ok){
+            if (response.ok) {
                 const newTree = await response.json();
                 alert('Tree added successfully!');
                 // setSuccessMessage('Tree added successfully!');
@@ -74,86 +74,86 @@ const handleFileChange =(e)=>{
         }
     };
 
-    return(
+    return (
         <div className={styleAddTree.addPage}>
             <br />
             <br />
-        <h1>Add Tree</h1>
-        {errorMessage && <p className={styleAddTree.error}>{errorMessage}</p>}
-        {successMessage && <p className={styleAddTree.success}>{successMessage}</p>}
-        <form onSubmit={handleSubmit} className={styleAddTree.form}>
-            <label>
-                Name:
-                <input
-                    type="text"
-                    name="name"
-                    value={treeData.name}
-                    onChange={handleInputChange}
-                    required
-                />
-            </label>
-            <label>
-                Category:
-                <input
-                    type="text"
-                    name="category"
-                    value={treeData.category}
-                    onChange={handleInputChange}
-                    required
-                />
-            </label>
-            <label>
-                Price:
-                <input
-                    type="number"
-                    name="price"
-                    value={treeData.price}
-                    onChange={handleInputChange}
-                    required
-                />
-            </label>
-            <label>
-                Description:
-                <textarea
-                    className ={styleAddTree.description}
-                    name="description"
-                    value={treeData.description}
-                    onChange={handleInputChange}
-                />
-            </label>
-            <label>
-                Inventory:
-                <input
-                    type="number"
-                    name="inventory"
-                    value={treeData.inventory}
-                    onChange={handleInputChange}
-                    required
-                />
-            </label>
-            <label>
-                Care:
-                <textarea
-                    className ={styleAddTree.description}
-                    name="care"
-                    value={treeData.care}
-                    onChange={handleInputChange}
-                />
-            </label>
-            <label>
-                Images:
-                <input
-                    type="file"
-                    multiple
-                    onChange={handleFileChange}
-                    accept="image/*"
-                    required
-                />
-            </label>
-            <button type="submit" className={styleAddTree.addButton}>
-                Add Tree
-            </button>
-        </form>
-    </div>
+            <h1>Add Tree</h1>
+            {errorMessage && <p className={styleAddTree.error}>{errorMessage}</p>}
+            {successMessage && <p className={styleAddTree.success}>{successMessage}</p>}
+            <form onSubmit={handleSubmit} className={styleAddTree.form}>
+                <label>
+                    Name:
+                    <input
+                        type="text"
+                        name="name"
+                        value={treeData.name}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Category:
+                    <input
+                        type="text"
+                        name="category"
+                        value={treeData.category}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Price:
+                    <input
+                        type="number"
+                        name="price"
+                        value={treeData.price}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Description:
+                    <textarea
+                        className={styleAddTree.description}
+                        name="description"
+                        value={treeData.description}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    Inventory:
+                    <input
+                        type="number"
+                        name="inventory"
+                        value={treeData.inventory}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Care:
+                    <textarea
+                        className={styleAddTree.description}
+                        name="care"
+                        value={treeData.care}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    Images:
+                    <input
+                        type="file"
+                        multiple
+                        onChange={handleFileChange}
+                        accept="image/*"
+                        required
+                    />
+                </label>
+                <button className={styleAddTree.addbutton} type="submit" >
+                    Add Tree
+                </button>
+            </form>
+        </div>
     )
 }

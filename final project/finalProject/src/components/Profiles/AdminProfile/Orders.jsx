@@ -98,7 +98,7 @@ export default function Orders() {
                             <td>{order.status}</td>
                             <td>{order.total_price}</td>
                             <td>
-                                <button onClick={() => toggleUpdateForm(order._id)}>
+                                <button className={styleUpdateTrees.updatebutton} onClick={() => toggleUpdateForm(order._id)}>
                                     Update
                                 </button>
                                 {showUpdateForm[order._id] && (
@@ -115,7 +115,7 @@ export default function Orders() {
                                             </select>
                                             <br />
                                             <br />
-                                            <button type="submit">Submit</button>
+                                            <button className={styleUpdateTrees.updatebutton} type="submit">Submit</button>
                                         </form>
                                     </div>
                                 )}

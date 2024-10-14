@@ -23,14 +23,23 @@ const uploadUser = multer({ storage: storageUser })
 router.get('/getUsers', async (req, res) => {
     try {
         const users = await User.find({ 'type': 'user' }); // Fetch all tree documents
-        console.log('Fetched users:', users);
+
         res.status(200).json(users); // Send the users as a JSON response
     } catch (error) {
         console.error('Error fetching users:', error);
         res.status(500).json({ message: 'Internal server error' }); // Handle errors
     }
 });
+router.get('/getAdmins', async (req, res) => {
+    try {
+        const users = await User.find({ 'type': 'admin' }); // Fetch all tree documents
 
+        res.status(200).json(users); // Send the users as a JSON response
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ message: 'Internal server error' }); // Handle errors
+    }
+});
 //get user by id
 router.get('/getUsers/:id', async (req, res) => {
     const { id } = req.params;
@@ -102,6 +111,24 @@ router.post('/login', async (req, res) => {
 
     }
 });
+router.post('/loginAdmin', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email, 'type': 'admin' });
+        if (!user) {
+            return res.status(404).json({ message: 'Make sure you have an account' })
+        }
+        if (user.password !== password) {
+            return res.status(401).json({ message: 'Wrong Password try again' });
+        }
+
+        res.json({ user });
+    } catch (error) {
+        console.error('Login error:', error);
+
+    }
+});
 // Show user profile
 router.get('/profile/:id', async (req, res) => {
     const { id } = req.params;
@@ -131,7 +158,7 @@ router.post('/donate', async (req, res) => {
         const user = await User.findById(userId)
         if (user) {
             user.points += amount * 0.05;
-            console.log(user.points)
+
         }
         await user.save();
         await donation.save();

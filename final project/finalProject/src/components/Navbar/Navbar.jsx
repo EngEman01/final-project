@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Login from "../Popups/Login";
 import Register from "../Popups/Register";
 import styleNavbar from './Navbar.module.css';
+import { isLoggedIn } from '../../utils/auth';
 
 export default function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   const toggleLoginPopup = () => {
     setIsLoginOpen(!isLoginOpen);
@@ -18,6 +18,23 @@ export default function Navbar() {
     setIsRegisterOpen(!isRegisterOpen);
   };
 
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (isLoggedIn()) {
+        const userId = localStorage.getItem('userId');
+        try {
+          const response = await fetch(`http://localhost:4000/user/getUsers/${userId}`);
+          const data = await response.json();
+          setUser(data);
+          console.log(data)
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+    fetchUserData();
+  });
   return (
     <>
       <div className={styleNavbar.navbar}>
@@ -29,16 +46,27 @@ export default function Navbar() {
           <Link to="/about" className={styleNavbar.navElement}>About</Link>
           <Link to="/trees" className={styleNavbar.navElement}>Trees</Link>
           <Link to="/contact" className={styleNavbar.navElement}>Contact</Link>
-          {/* <Link to="/user" className={styleNavbar.navElement}>user</Link> */}
-          <Link to="/admin" className={styleNavbar.navElement}>admin</Link>
-          <Link to="/cart" className={styleNavbar.navElement}>Cart</Link>
-          <div className={styleNavbar.profile}>
-            <button className={styleNavbar.enter} onClick={toggleLoginPopup}>Login</button>
-            <button className={styleNavbar.enter} onClick={toggleRegisterPopup}>Register</button>
-          </div>
+          {!isLoggedIn() ? (
+            <div className={styleNavbar.profile}>
+              <button className={styleNavbar.enter} onClick={toggleLoginPopup}>Login</button>
+              <button className={styleNavbar.enter} onClick={toggleRegisterPopup}>Register</button>
+            </div>
+          ) : (
+            <>
+              <Link to="/cart" className={styleNavbar.navElement}>Cart</Link>
+              <Link className={styleNavbar.navElement} to='/user'>
+                {user && (
+                  <img
+                    className={styleNavbar.img}
+                    src={`../../../public/users-images/${user.photo}`}
+                    alt="Profile"
+                  />
+                )}
+              </Link>
+            </>
+          )}
         </div>
       </div>
-
 
       {isLoginOpen && (
         <div className={styleNavbar.popup}>
@@ -48,7 +76,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-
 
       {isRegisterOpen && (
         <div className={styleNavbar.popup}>

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import styleTreePage from "../Trees/TreePage.module.css";
+import LoginFirstPopup from "../Popups/LoginFirstPopup";  
 
 export default function TreePage() {
     const { id } = useParams();
     const [tree, setTree] = useState();
     const [loading, setLoading] = useState(true);
+    const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);  
     const userId = localStorage.getItem('userId');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     useEffect(() => {
         fetch(`http://localhost:4000/tree/getTrees/${id}`)
             .then((res) => {
@@ -26,6 +29,12 @@ export default function TreePage() {
     }, [id]);
 
     const handleAddToCart = async () => {
+        
+        if (!userId) {
+            setIsLoginPopupOpen(true);  
+            return;
+        }
+ 
         const payload = {
             userId,
             treeId: id
@@ -37,7 +46,12 @@ export default function TreePage() {
             },
             body: JSON.stringify(payload),
         });
-        navigate('/cart')
+
+        navigate('/cart');  
+    };
+
+    const closeLoginPopup = () => {
+        setIsLoginPopupOpen(false);  
     };
 
     if (!loading) {
@@ -64,6 +78,8 @@ export default function TreePage() {
                         </div>
                     </div>
                 </div>
+ 
+                {isLoginPopupOpen && <LoginFirstPopup isOpen={isLoginPopupOpen} onClose={closeLoginPopup} />}
             </>
         );
     }

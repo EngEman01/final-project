@@ -17,6 +17,7 @@ import KnowUsers from "./components/Profiles/AdminProfile/KnowUsers";
 import Orders from "./components/Profiles/AdminProfile/Orders";
 import EditTree from "./components/Profiles/AdminProfile/EditTree/EditTree";
 import AddTree from "./components/Profiles/AdminProfile/AddTree/AddTree";
+import Logout from "./components/Profiles/Logout";
 
 const routes = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ const routes = createBrowserRouter([
           },
           {
             path: "/user/logout",
-            element: <Logout/>,
+            element: <Logout />,
           },
         ],
       },

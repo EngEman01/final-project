@@ -61,12 +61,13 @@ table {
     box-shadow: 10px 5px 35px #333;
 }
 
-td, th {
+td,
+th {
     text-align: center;
     padding: 8px;
 }
 
-th{
+th {
     font-size: 23px;
 }
 
@@ -150,11 +151,11 @@ tr:nth-child(even) {
     transition: 0.8s;
     background: transparent;
     color: #46543e;
-   
+
     /*remove it to make it toggle*/
 }
 
-.searchbox input:hover{
+.searchbox input:hover {
     width: 400px;
 }
 
@@ -240,7 +241,8 @@ tr:nth-child(even) {
     color: #46543e;
 }
 
-.delete , .update{
+.delete,
+.update {
     text-transform: capitalize;
     margin-left: 10px;
     border: none;
@@ -258,12 +260,77 @@ tr:nth-child(even) {
     background-color: rgb(6, 199, 6);
 }
 
-.addButton{
+.addButton {
     background-color: #72a551;
+    color: white;
+    border: none;
+    padding: 10px 15px;
     width: 150px;
     border-radius: 10px;
     margin: 40px;
     position: absolute;
     right: 0;
     font-size: 23px;
+}
+
+
+.formContainerr {
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    padding: 50px;
+
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formContainerr select {
+    margin-right: 10px;
+    padding: 10px;
+
+
+    border-radius: 5px;
+
+    background-color: #fff;
+
+
+
+    font-size: 16px;
+
+    transition: background-color 0.3s;
+
+}
+
+.formContainerr button {
+    padding: 5px 10px;
+
+}
+
+.updatebutton {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.updatebutton:hover {
+    background-color: #4cae4c;
 }

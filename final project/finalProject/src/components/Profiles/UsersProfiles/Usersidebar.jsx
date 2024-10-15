@@ -38,11 +38,14 @@ export default function Usersidebar() {
     <>
       <div className={styleSidebar.userSidebar}>
         <div className={styleSidebar.info}>
-          <img className={styleSidebar.profileImage} src="/tree-images/carob tree 1.jpeg" alt="" />
+
           {error ? (
             <h2>{error}</h2>
           ) : userData ? (
-            <h2>{userData.name}</h2>
+            <>
+              <img className={styleSidebar.profileImage} src={`../../../../public/users-images/${userData.photo}`} alt="" />
+              <h2>{userData.name}</h2>
+            </>
           ) : (
             <h2>Loading...</h2>
           )}
@@ -53,10 +56,7 @@ export default function Usersidebar() {
             <FontAwesomeIcon icon={faUser} className={styleSidebar.icon} title="Profile" />
             Profile
           </Link>
-          <Link to="/user/cart" className={styleSidebar.userElement}>
-            <FontAwesomeIcon icon={faShoppingCart} className={styleSidebar.icon} title="Cart" />
-            my cart
-          </Link>
+
           <Link to="/user/logout" className={styleSidebar.userElement}>
             <FontAwesomeIcon icon={faSignOutAlt} className={styleSidebar.icon} title="Logout" />
             logout

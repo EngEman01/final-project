@@ -38,6 +38,10 @@ export default function UserInfo() {
                         <h2>{error}</h2>
                     ) : userData ? (
                         <div className={styleInfo.info}>
+                            <div className={styleInfo.point}>
+                                
+                                <h5>my points : <span className={styleInfo.pointNum}>15</span></h5>
+                            </div>
                             <h1>Name:</h1>
                             <h4>{userData.name}</h4>
                             <h1>Email:</h1>
@@ -46,7 +50,7 @@ export default function UserInfo() {
                             <h4>{userData.address}</h4>
                             <h1>Phone:</h1>
                             <h4>{userData.phone}</h4>
-                            {/* Add any other fields you want to display */}
+
                         </div>
                     ) : (
                         <h2>Loading...</h2>

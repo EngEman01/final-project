@@ -23,7 +23,21 @@
    flex-direction: column;
     padding-left: 80px;
 }
+.point{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+}
 
+.pointNum{
+    color: green;
+}
+
+.point h5{
+    font-size: 32px;
+}
 .info h4{
     padding: 15px;
     border: 1px solid #46543e;

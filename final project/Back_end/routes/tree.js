@@ -18,7 +18,7 @@ const uploadTree = multer({ storage: storageTree }).array('images', 3);
 router.get('/getTrees', async (req, res) => {
     try {
         const trees = await Tree.find(); // Fetch all tree documents
-        console.log('Fetched trees:', trees);
+
         res.status(200).json(trees); // Send the trees as a JSON response
     } catch (error) {
         console.error('Error fetching trees:', error);

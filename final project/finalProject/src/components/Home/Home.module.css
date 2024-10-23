@@ -101,7 +101,7 @@ h2{
 
 .treeCard{
     width: 90%;
-    height: 500px;
+    /* height: 500px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,4 +178,18 @@ h2{
     position: absolute; 
     top: 10px; 
     right: 10px;
+}
+
+@media(max-width:1088px){
+    .plantes{
+        /* margin-top: 500px; */
+        flex-direction: column;
+    }
+
+    .ourService{
+        gap: 50px;
+        margin-bottom: 500px;
+        margin-bottom: 200px;
+        flex-direction: column;
+    }
 }

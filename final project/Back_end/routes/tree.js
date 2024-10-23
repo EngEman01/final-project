@@ -18,7 +18,7 @@ const uploadTree = multer({ storage: storageTree }).array('images', 3);
 router.get('/getTrees', async (req, res) => {
     try {
         const trees = await Tree.find(); // Fetch all tree documents
-        console.log('Fetched trees:', trees);
+
         res.status(200).json(trees); // Send the trees as a JSON response
     } catch (error) {
         console.error('Error fetching trees:', error);
@@ -93,6 +93,10 @@ router.put('/editTree/:id', uploadTree, async (req, res) => {
     const { id } = req.params;
     const { name, category, price, description, inventory, care } = req.body;
 
+    // Validate that required fields are provided
+    if (!name || !category || !price || !inventory) {
+        return res.status(400).json({ message: 'Please provide all required fields' });
+    }
 
     try {
         const updatedTree = await Tree.findByIdAndUpdate(
@@ -104,10 +108,10 @@ router.put('/editTree/:id', uploadTree, async (req, res) => {
         if (!updatedTree) {
             return res.status(404).json({ message: 'Tree not found' });
         }
-        res.json(updatedTree);
+        res.status(200).json(updatedTree);
     } catch (error) {
         console.error('Error editing tree:', error);
-
+        res.status(500).json({ message: 'Error updating tree' });
     }
 });
 //delete tree
@@ -123,6 +127,7 @@ router.delete('/deleteTree/:id', async (req, res) => {
         res.status(204).send();
     } catch (error) {
         console.error('Error deleting tree:', error);
+        res.status(500).json({ message: 'Error deleting tree' });
 
     }
 });

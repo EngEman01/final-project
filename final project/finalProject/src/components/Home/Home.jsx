@@ -88,20 +88,35 @@
 //     )
 // }
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styleHome from "./Home.module.css";
 import { Link } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import Donate from "../Donate/Donate";
 import './Carousel.css';
-
+import LoginFirstPopup from "../Popups/LoginFirstPopup";
+import { isLoggedIn } from "../../utils/auth";
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  const [isLoginFirstPopupOpen, setIsLoginFirstPopupOpen] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
+
+    if (userLoggedIn) {
+
+      setIsPopupOpen(!isPopupOpen);
+    } else {
+
+      setIsLoginFirstPopupOpen(true);
+    }
   };
 
+  const closeLoginPopup = () => {
+    setIsLoginFirstPopupOpen(false);
+  };
+  useEffect(() => {
+    setUserLoggedIn(isLoggedIn());
+  }, []);
   return (
     <>
 
@@ -301,6 +316,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      <LoginFirstPopup isOpen={isLoginFirstPopupOpen} onClose={closeLoginPopup} />
     </>
   );
 }

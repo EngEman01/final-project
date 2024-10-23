@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import Usefatch from '../../Profiles/getOrders'; // Adjust the path if needed
+import Usefatch from '../../Profiles/getOrders';
 import styleUpdateTrees from './UpdateTrees.module.css';
 
 export default function Orders() {
-    const [orders, setOrders] = useState([]); 
-    const [users, setUsers] = useState({}); // State to store users data
-    const [loading, setLoading] = useState(true); // Add loading state
-    const fetchedOrders = Usefatch(); 
+    const [orders, setOrders] = useState([]);
+    const [users, setUsers] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [showUpdateForm, setShowUpdateForm] = useState({});
+    const fetchedOrders = Usefatch();
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch("http://localhost:4000/user/getUsers"); // Adjust the endpoint as necessary
+                const response = await fetch("http://localhost:4000/user/getUsers");
                 const data = await response.json();
-                console.log("Fetched Users:", data); // Log fetched users
-
                 const usersMap = data.reduce((acc, user) => {
-                    acc[user._id] = user.name; // Make sure to use the correct property (name or username)
+                    acc[user._id] = user.name;
                     return acc;
                 }, {});
                 setUsers(usersMap);
@@ -27,19 +26,56 @@ export default function Orders() {
 
         const fetchData = async () => {
             await fetchUsers();
-            setOrders(fetchedOrders); // Fetch orders after users
-            setLoading(false); // Set loading to false after data is fetched
+            setOrders(fetchedOrders);
+            setLoading(false);
         };
 
         fetchData();
-    }, [fetchedOrders]); 
+    }, [fetchedOrders]);
 
     useEffect(() => {
-        console.log("Fetched Orders:", orders); // Log fetched orders
+        console.log("Fetched Orders:", orders);
     }, [orders]);
 
+    const handleStatusChange = async (orderId, newStatus) => {
+        try {
+            const response = await fetch(`http://localhost:4000/order/orders/${orderId}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ status: newStatus }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update order status');
+            }
+
+            const updatedOrder = await response.json();
+            setOrders((prevOrders) =>
+                prevOrders.map((order) =>
+                    order._id === updatedOrder._id ? updatedOrder : order
+                )
+            );
+            setShowUpdateForm((prev) => ({ ...prev, [orderId]: false }));
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleSubmit = (event, orderId) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const newStatus = formData.get('status');
+        handleStatusChange(orderId, newStatus);
+    };
+
+    const toggleUpdateForm = (orderId) => {
+        setShowUpdateForm((prev) => ({ ...prev, [orderId]: !prev[orderId] }));
+    };
+
     if (loading) {
-        return <div>Loading...</div>; // Show a loading indicator while fetching data
+        return <div>Loading...</div>;
     }
 
     return (
@@ -52,6 +88,7 @@ export default function Orders() {
                         <th>Username</th>
                         <th>Status</th>
                         <th>Total Price</th>
+                        <th>Update Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,6 +97,29 @@ export default function Orders() {
                             <td>{users[order.userId] || 'Unknown User'}</td>
                             <td>{order.status}</td>
                             <td>{order.total_price}</td>
+                            <td>
+                                <button className={styleUpdateTrees.updatebutton} onClick={() => toggleUpdateForm(order._id)}>
+                                    Update
+                                </button>
+                                {showUpdateForm[order._id] && (
+                                    <div className={styleUpdateTrees.formContainerr}>
+                                        <form onSubmit={(e) => handleSubmit(e, order._id)}>
+                                            <h4>Update Status</h4>
+                                            <br />
+
+                                            <select name="status" defaultValue={order.status}>
+                                                <option value="pending">Pending</option>
+                                                <option value="shipped">Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="canceled">Canceled</option>
+                                            </select>
+                                            <br />
+                                            <br />
+                                            <button className={styleUpdateTrees.updatebutton} type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                )}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

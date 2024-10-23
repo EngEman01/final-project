@@ -77,9 +77,15 @@
   /* box-shadow: 20px 80px 10px #46543e; */
   filter: drop-shadow(20px 80px 10px #46543e);
 }
-/*
-.purposeText {
-  max-width: 800px; 
-  text-align: center; 
-} 
-*/
+
+@media(max-width:902px){
+  /* .purposeSection {
+    gap: 200px;
+  } */
+
+  .purposeContent{
+    flex-direction: column;
+    gap: 300px;
+    margin-bottom: 100px;
+  }
+}

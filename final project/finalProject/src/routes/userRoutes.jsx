@@ -11,6 +11,7 @@ import Cart from "../components/Cart/Cart";
 import Logout from "../components/Profiles/Logout";
 import Layout from "../components/Layout";
 import "../App.css";
+import { isLoggedIn } from '../utils/auth';
 const userRoutes = [
     {
         path: "/",
@@ -42,11 +43,11 @@ const userRoutes = [
             },
             {
                 path: "/cart",
-                element: <Cart />,
+                element: isLoggedIn ? <Cart /> : <Home />,
             },
             {
                 path: "/user",
-                element: <UserProfile />,
+                element: isLoggedIn ? <UserProfile /> : <Home />,
                 children: [
                     {
                         path: "",

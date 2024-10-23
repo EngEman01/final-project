@@ -39,8 +39,8 @@ export default function UserInfo() {
                     ) : userData ? (
                         <div className={styleInfo.info}>
                             <div className={styleInfo.point}>
-                                
-                                <h5>my points : <span className={styleInfo.pointNum}>15</span></h5>
+
+                                <h5>my points : <span className={styleInfo.pointNum}>{userData.points}</span></h5>
                             </div>
                             <h1>Name:</h1>
                             <h4>{userData.name}</h4>

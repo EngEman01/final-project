@@ -335,23 +335,6 @@ router.put('/decProductCart/:userId/:treeId', async (req, res) => {
     }
 });
 
-// Calculate total price of the cart
-// router.get('/totalPrice/:cartId', async (req, res) => {
-//     const { cartId } = req.params;
-//     try {
-//         const cart = await Cart.findById(cartId).populate('trees.treeId');
-//         if (!cart) {
-//             return res.status(404).json({ message: 'Cart not found' });
-//         }
-//         const totalPrice = cart.trees.reduce((total, item) => {
-//             return total + (item.quantity * item.treeId.price);
-//         }, 0);
-//         res.json({ totalPrice });
-//     } catch (error) 
-//         console.error('Error calculating total price:', error);
-//         res.status(500).json({ message: 'Internal server error' });
-//     }
-// });
 
 // Place an order
 router.post('/order', async (req, res) => {

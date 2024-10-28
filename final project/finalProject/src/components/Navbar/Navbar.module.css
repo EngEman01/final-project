@@ -54,6 +54,7 @@
     transition: all 0.5s ease-in-out;
 }
 
+/* Navbar Elements Styling */
 .navElement {
     font-size: 28px;
     color: antiquewhite;
@@ -92,6 +93,44 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
+}
+
+/* Enter Button Styling */
+.enter {
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
+    display: inline-block;
+    color: antiquewhite;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s ease-in;
+    margin-right: 40px;
+}
+
+.enter::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: antiquewhite;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+.enter:hover::before {
+    transform: scaleX(1);
+    background-color: #c1c8be;
+    transform-origin: bottom left;
+}
+
+.enter:hover {
+    color: #c1c8be;
+    filter: drop-shadow(10px 10px 20px rgb(244, 205, 154));
 }
 
 /* Popups */

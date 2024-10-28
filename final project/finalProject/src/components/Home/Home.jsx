@@ -176,7 +176,7 @@ export default function Home() {
 
           <div className="carousel-item">
             <img
-              src="/tree-images/sycamore fig 2.jpeg"
+              src="/tree-images/neam side.JPG"
               className="d-block w-100 carousel-image"
               alt="Third slide"
               onError={(e) => (e.target.src = '/images/placeholder.jpg')}
